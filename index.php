@@ -3,7 +3,7 @@ include_once('config.php');
 
 Auth::redirectUnlogged();
 
-$weights = Weight::getForDaysAgo(DEPTH_SHOW);
+$weights = Weight::getForDaysAgo(DAYS_AGO_INDEX);
 
 // + write AJAX scripts for data update (not in this file)
 
