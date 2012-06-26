@@ -8,10 +8,11 @@ class Weight
 
     }
 
-    public static function getPeriod($start, $finish)
+    public static function getForDaysAgo($daysAgo)
     {
         $email = Auth::getEmail();
-
+        $start = new DateTime('now');
+        $finish = new DateTime("-$daysAgo days");
     }
 
     public static function set($date)
