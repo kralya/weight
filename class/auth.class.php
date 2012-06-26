@@ -14,5 +14,14 @@ class Auth
     {
     }
 
+    public static function redirectUnlogged()
+    {
+        if (!self::isLogged()) {
+            Utility::redirect(WELCOME_PAGE);
+        }
+    }
 
+    public static function getEmail()
+    {
+    }
 }
