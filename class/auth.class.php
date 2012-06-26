@@ -2,16 +2,20 @@
 
 class Auth
 {
+    protected static $user;
     public static function isLogged()
     {
+        return isset($_SESSION[self::$user]);
     }
 
     public static function logout()
     {
+        unset($_SESSION[self::$user]);
     }
 
     public static function login($email)
     {
+        $_SESSION[self::$user] = $email;
     }
 
     public static function redirectUnlogged()
@@ -23,5 +27,6 @@ class Auth
 
     public static function getEmail()
     {
+        return $_SESSION[self::$user];
     }
 }
