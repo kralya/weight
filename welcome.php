@@ -1,18 +1,20 @@
 <?php
+include_once('config.php');
 
 $email = $_POST['email'];
-if(!isset($_POST['email'])){
-    return;
-}
 
-if(!Validate::email($email)){
+if (!Validate::email($email)) {
     $message = 'Email is not valid';
-    return;
 }
 
-if(!User::exists($email)){
-    User::create($email);
+if (isset($_POST['email']) && Validate::email($email)) {
+    if (!User::exists($email)) {
+        User::create($email);
+    }
+
+    Auth::login($email);
+    Utility::redirect('index.php');
+
 }
 
-Auth::login($email);
-Utility::redirect('index.php');
+Core::loadTemplate('welcome');
