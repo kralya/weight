@@ -20,12 +20,20 @@ class Weight
             return array();
         }
 
-        $result = array();
+        // get unordered array $x[date] = weight
+        $weights = array();
         while($row = mysql_fetch_assoc($res)){
-            $result[$row['created_at']] = $row['weight'];
+            $weights[$row['created_at']] = $row['weight'];
         }
 
-        return $result;
+        // order it, limit to DAYS_AGO_INDEX values, fill with empty values for absent dates.
+        $results = array();
+        for($i=0; $i < $daysAgo; $i++){
+            $date = new DateTime(sprintf(' -%s days', ($daysAgo-$i) ));
+            $results[$date->format('Y-m-d')] = isset($weights[$date->format('Y-m-d')]) ? $weights[$date->format('Y-m-d')] : '';
+        }
+
+        return $results;
     }
 
     public static function set($date)
