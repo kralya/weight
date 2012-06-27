@@ -9,3 +9,4 @@ $weights = Weight::getForDaysAgo(DAYS_AGO_GRAPH);
 // get and pass to template data for user
 
 Core::loadTemplate('menu');
+Core::loadTemplate('graph');
