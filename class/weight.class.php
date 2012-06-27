@@ -20,7 +20,6 @@ class Weight
             return array();
         }
 
-        // get unordered array $x[date] = weight
         $weights = array();
         while ($row = mysql_fetch_assoc($res)) {
             $weights[$row['created_at']] = $row['weight'];
