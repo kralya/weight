@@ -22,7 +22,7 @@ class Weight
 
         $result = array();
         while($row = mysql_fetch_assoc($res)){
-            $result[] = $row;
+            $result[$row['created_at']] = $row['weight'];
         }
 
         return $result;
