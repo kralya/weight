@@ -1,7 +1,11 @@
 <?php
 
 class Core{
-    public static function loadTemplate($template){
+    public static function loadTemplate($template, $vars = array()){
+        foreach($vars as $key => $value){
+            $$key = $value;
+        }
+
         include('view//'.$template.'.php');
     }
 
