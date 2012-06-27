@@ -15,10 +15,28 @@ home page here
 
     <?php } ?>
 </div>
+
+
 </body>
 <script type="text/javascript">
-    $('.box').click(function(){
-//        alert('hello!');
+    function hideBoxes() {
+        $('.box').show();
+        $('.active').hide();
+    }
+
+    $('.box').click(function () {
+        hideBoxes();
+
+        var text = $(this).text();
+        $(this).before('<div class="active"> <input type="text" class="input_box" value="' + $.trim(text) + '"/> <input type="submit" value="Save"/></div>');
+        $(this).hide();
+
+        return false;
     });
+
+    $('html').click(function () {
+        hideBoxes();
+    });
+
 </script>
 </html>
