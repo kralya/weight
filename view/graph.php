@@ -1,2 +1,15 @@
+<html>
+<head>
+</head>
+<body>
+<?php
 
- graph here
+echo 'Graph page';
+
+/** 
+ * lineSmoothed.html
+ */
+
+?>
+</body>
+</html>
