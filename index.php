@@ -4,9 +4,8 @@ include_once('config.php');
 Auth::redirectUnlogged();
 
 $weights = Weight::getForDaysAgo(DAYS_AGO_INDEX);
-$email = Auth::getEmail();
 
-// + write AJAX scripts for data update (not in this file)
+$email = Auth::getEmail();
 
 Core::loadTemplate('menu');
 Core::loadTemplate('index', array('weights' => $weights, 'email' => $email));

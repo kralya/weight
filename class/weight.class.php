@@ -38,7 +38,7 @@ class Weight
     protected static function orderAndLimit($weights, $limit)
     {
         $results = array();
-        for ($i = 0; $i < $limit; $i++) {
+        for ($i = 1; $i <= $limit; $i++) {
             $date = new DateTime(sprintf(' -%s days', ($limit - $i)));
             $results[$date->format('Y-m-d')] = isset($weights[$date->format('Y-m-d')]) ? $weights[$date->format('Y-m-d')] : '';
         }
