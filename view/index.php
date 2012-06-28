@@ -40,10 +40,11 @@ home page here
         $('.input_submit').click(function () {
             var email = $('#email').val();
             var weight = $('#input_selected').val();
-            var date = $('.box:hidden').attr('id').replace('box-','');
+            var boxId = $('.box:hidden').attr('id');
+            var date = boxId.replace('box-','');
 
             $.post('save.php', {email: email, weight: weight, date: date, sid:Math.random()}, function (response) {
-//                $('#vote_res_' + vid).html(data);
+                $('#'+boxId).text(response);
             });
 
         });
