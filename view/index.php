@@ -28,13 +28,25 @@ home page here
         hideBoxes();
 
         var text = $(this).text();
-        $(this).before('<div class="active"> <input type="text" class="input_box" value="' + $.trim(text) + '"/> <input type="submit" value="Save"/></div>');
+        $(this).before('<div class="active"> <input type="text" class="input_box" value="' + $.trim(text) + '"/> <input type="submit" class="input_submit" value="Save"/></div>');
         $(this).hide();
+
+        $('.input_box').click(function () {
+            return false;
+        });
+
+        $('.input_submit').click(function () {
+            $.post('save.php', {email:1, weight:2, date: 3, sid:Math.random()}, function (response) {
+//                $('#vote_res_' + vid).html(data);
+
+            });
+
+        });
 
         return false;
     });
 
-    $('html').click(function () {
+    $('body').click(function () {
         hideBoxes();
     });
 
