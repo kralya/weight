@@ -44,6 +44,11 @@ home page here
             var date = boxId.replace('box-','');
 
             $.post('save.php', {email: email, weight: weight, date: date, sid:Math.random()}, function (response) {
+
+                if(response.search('wrong') != -1){
+                    return false;
+                }
+
                 $('#'+boxId).text(response);
             });
 
