@@ -5,7 +5,14 @@ class Weight
     public static function get($date)
     {
         $email = Auth::getEmail();
+        $query = 'SELECT weight FROM weight w, user u WHERE u.id = w.id_user AND email="%s" AND w.created_at="%s"';
+        $res = mysql_query(sprintf($query, $email, $date));
+        if(0 == mysql_num_rows($res)){
+            return 0;
+        }
 
+        $row = mysql_fetch_assoc($res);
+        return $row['weight'];
     }
 
     public static function getForDaysAgo($daysAgo)
@@ -39,9 +46,17 @@ class Weight
         return $results;
     }
 
-    public static function set($date)
+    public static function set($date, $weight)
     {
-        $email = Auth::getEmail();
+        $id = User::getIdByEmail(Auth::getEmail());
 
+        if(self::get($date) > 0){
+            $query = 'UPDATE weight SET weight="%s" WHERE id_user = "%s" AND created_at = "%s"';
+            mysql_query(sprintf($query, $weight, $id, $date));
+            return;
+        }
+
+        $query = 'INSERT INTO weight (id_user, weight, created_at) VALUES("%s", "%s", "%s")';
+        mysql_query(sprintf($query, $id, $weight, $date));
     }
 }
