@@ -3,7 +3,7 @@ include_once('config.php');
 
 $email = $_POST['email'];
 
-if (!Validate::email($email)) {
+if (isset($_POST['email']) && !Validate::email($email)) {
     $message = 'Email is not valid';
 }
 
