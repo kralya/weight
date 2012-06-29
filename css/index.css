@@ -1,3 +1,21 @@
+/*header page*/
+div.header{
+    width: 100%;
+    border: 1px dotted black;
+    height: 70px;
+}
+
+div.header-menu{
+    margin-top: 25px;
+    margin-right: 25px;
+    float: right;
+}
+
+#content{
+    border: 1px dotted green;
+    height: 440px;
+}
+ /*index page*/
 #input_selected{
     width:40px;
 }
@@ -23,6 +41,19 @@ div.container div {
 div.container {
     margin-top: 150px;
     padding-left: 200px;
-    /*border: 1px dotted black;*/
     height: 30px;
+}
+
+/*footer page*/
+
+div.footer{
+    width: 100%;
+    border: 1px dotted black;
+    height: 70px;
+}
+
+div.footer-copyright{
+    margin-right: 25px;
+    margin-top: 25px;
+    float: right;
 }

@@ -21,11 +21,11 @@
 <body>
 
 <!--header start -->
-<div style="width: 100%; border: 1px dotted black; height: 70px">
+<div class="header">
     <div style="float: left">
         <img src="img/logo.png"/>
     </div>
-    <div style="margin-top: 25px; margin-right: 25px; float: right">
+    <div class="header-menu">
         <a href='index.php'>View</a>
         <a href='graph.php'>Graph</a>
         <a href='logout.php'>Logout</a>
@@ -33,4 +33,4 @@
 </div>
 <!--header end -->
 <!-- content start-->
-<div id="content" style="border: 1px dotted green; height: 500px">
+<div id="content" >
