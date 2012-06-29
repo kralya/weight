@@ -1,11 +1,3 @@
-<html>
-<head>
-    <link rel="stylesheet" href="css/index.css">
-    <script type="text/javascript" src="js/jquery.min.1.7.1.js"></script>
-</head>
-<body>
-home page here
-
 <div class="container">
     <input type="hidden" id="email" value="<?php echo $email ?>" />
 
