@@ -26,9 +26,9 @@
         <img src="img/logo.png"/>
     </div>
     <div class="header-menu">
-        <a href='index.php'>View</a>
-        <a href='graph.php'>Graph</a>
-        <a href='logout.php'>Logout</a>
+        <a href='index.php'>Главная</a>
+        <a href='graph.php'>График</a>
+        <a href='logout.php'>Выйти</a>
     </div>
 </div>
 <!--header end -->
