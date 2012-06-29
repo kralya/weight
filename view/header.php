@@ -3,19 +3,20 @@
 
 <head>
     <meta http-equiv="Content-Language" content="ru">
-    <meta http-equiv="content-type" content="text/html; charset="windows-1251"/>
+    <meta http-equiv="content-type" content="text/html; charset=" windows-1251
+    "/>
 
-    <meta name="robots" content="INDEX, FOLLOW" />
-    <meta name="keywords" content="дневник, вес, график, изменение, похудеть" />
-    <meta name="description" content="Дневник веса, онлайн вес, следить за весом" />
+    <meta name="robots" content="INDEX, FOLLOW"/>
+    <meta name="keywords" content="дневник, вес, график, изменение, похудеть"/>
+    <meta name="description" content="Дневник веса, онлайн вес, следить за весом"/>
 
     <title><?php echo $title ?></title>
 
     <link rel="stylesheet" href="css/index.css">
 
-        <script type="text/javascript" src="js/jquery.min.1.7.1.js"></script>
+    <script type="text/javascript" src="js/jquery.min.1.7.1.js"></script>
 
-<?php if(isset($useChartScript) && $useChartScript) Core::loadTemplate('chart-script', array('weights' => $weights)) ?>
+    <?php if (isset($useChartScript) && $useChartScript) Core::loadTemplate('chart-script', array('weights' => $weights)) ?>
 
 </head>
 <body>
@@ -27,7 +28,7 @@
             <img src="img/logo.png"/>
         </a>
     </div>
-    <?php if(!isset($notLogged)){ ?>
+    <?php if (!isset($notLogged)) { ?>
     <div class="header-menu">
         <span><a href='index.php'>Главная</a></span>
         <span><a href='graph.php'>График</a></span>
@@ -37,4 +38,4 @@
 </div>
 <!--header end -->
 <!-- content start-->
-<div id="content" >
+<div id="content">

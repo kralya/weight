@@ -1,5 +1,5 @@
 <div class="container">
-    <input type="hidden" id="email" value="<?php echo $email ?>" />
+    <input type="hidden" id="email" value="<?php echo $email ?>"/>
 
     <?php foreach ($weights as $key => $value) { ?>
 

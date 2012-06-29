@@ -1,40 +1,41 @@
 /*welcome page*/
-.welcome-block{
+.welcome-block {
     margin-left: 40%;
     margin-top: 100px;
 }
 
-.welcome-error{
+.welcome-error {
     color: red;
 }
 
 /*header page*/
-div.header{
+div.header {
     width: 100%;
     border: 1px dotted black;
     height: 70px;
 }
 
-div.header-menu{
+div.header-menu {
     margin-top: 25px;
     margin-right: 25px;
     float: right;
 }
 
-div.header-menu span{
+div.header-menu span {
     margin-left: 10px;
 }
 
-#content{
+#content {
     border: 1px dotted green;
     height: 440px;
 }
- /*index page*/
-#input_selected{
-    width:40px;
+
+/*index page*/
+#input_selected {
+    width: 40px;
 }
 
-div.active{
+div.active {
     width: 50px;
     height: 20px;
     display: block;
@@ -60,13 +61,13 @@ div.container {
 
 /*footer page*/
 
-div.footer{
+div.footer {
     width: 100%;
     border: 1px dotted black;
     height: 70px;
 }
 
-div.footer-copyright{
+div.footer-copyright {
     margin-right: 25px;
     margin-top: 25px;
     float: right;
