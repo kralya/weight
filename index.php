@@ -5,5 +5,5 @@ Auth::redirectUnlogged();
 $weights = Weight::getForDaysAgo(DAYS_AGO_INDEX);
 $email = Auth::getEmail();
 
-Core::loadTemplate('menu');
+Core::loadTemplate('header');
 Core::loadTemplate('index', array('weights' => $weights, 'email' => $email));
