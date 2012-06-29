@@ -9,6 +9,4 @@
 
     <?php } ?>
 </div>
-</body>
 <script type="text/javascript" src="js/index-weight.js"></script>
-</html>

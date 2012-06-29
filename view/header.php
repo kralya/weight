@@ -32,3 +32,5 @@
     </div>
 </div>
 <!--header end -->
+<!-- content start-->
+<div id="content" style="border: 1px dotted green; height: 500px">

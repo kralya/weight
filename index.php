@@ -7,3 +7,4 @@ $email = Auth::getEmail();
 
 Core::loadTemplate('header', array('title' => 'Дневник веса'));
 Core::loadTemplate('index', array('weights' => $weights, 'email' => $email));
+Core::loadTemplate('footer');
