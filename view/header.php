@@ -23,7 +23,9 @@
 <!--header start -->
 <div class="header">
     <div style="float: left">
-        <img src="img/logo.png"/>
+        <a href="index.php">
+            <img src="img/logo.png"/>
+        </a>
     </div>
     <?php if(!isset($notLogged)){ ?>
     <div class="header-menu">
