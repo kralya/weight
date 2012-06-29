@@ -21,6 +21,10 @@ div.header-menu{
     float: right;
 }
 
+div.header-menu span{
+    margin-left: 10px;
+}
+
 #content{
     border: 1px dotted green;
     height: 440px;

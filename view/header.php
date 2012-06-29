@@ -29,9 +29,9 @@
     </div>
     <?php if(!isset($notLogged)){ ?>
     <div class="header-menu">
-        <a href='index.php'>Главная</a>
-        <a href='graph.php'>График</a>
-        <a href='logout.php'>Выйти</a>
+        <span><a href='index.php'>Главная</a></span>
+        <span><a href='graph.php'>График</a></span>
+        <span><a href='logout.php'>Выйти</a></span>
     </div>
     <?php } ?>
 </div>
