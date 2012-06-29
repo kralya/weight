@@ -23,9 +23,10 @@
         hideBoxes();
 
         var text = $(this).text();
-        $(this).before('<div class="active"> <input type="text" id="input_selected" value="' + $.trim(text) + '"/> <input type="submit" class="input_submit" value="Save"/></div>');
+        $(this).before('<div class="active"> <input type="text" id="input_selected" value="' + $.trim(text) + '"  onfocus="this.value = this.value;" /> <input type="submit" class="input_submit" value="Save"/></div>');
         $(this).hide();
         $('#input_selected').focus();
+
 
         $('#input_selected').click(function () {
             return false;
