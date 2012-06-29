@@ -4,4 +4,4 @@ Auth::redirectUnlogged();
 $weights = Weight::getForDaysAgo(DAYS_AGO_GRAPH);
 
 Core::loadTemplate('menu');
-Core::loadTemplate('graph');
+Core::loadTemplate('graph', array('weights' => $weights));
