@@ -66,7 +66,7 @@
             var chartCursor = new AmCharts.ChartCursor();
             chartCursor.cursorAlpha = 0;
             chartCursor.cursorPosition = "mouse";
-            chartCursor.categoryBalloonDateFormat = "MM";
+            chartCursor.categoryBalloonDateFormat = "DD";
             chart.addChartCursor(chartCursor);
 
             // SCROLLBAR
