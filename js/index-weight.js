@@ -36,6 +36,11 @@
                 sendWeight();
                 hideBoxes();
             }
+
+            if(elem.which == 27){
+                hideBoxes();
+            }
+
         });
 
         $('.input_submit').click(function () {
