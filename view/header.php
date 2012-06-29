@@ -25,11 +25,13 @@
     <div style="float: left">
         <img src="img/logo.png"/>
     </div>
+    <?php if(!isset($notLogged)){ ?>
     <div class="header-menu">
         <a href='index.php'>Главная</a>
         <a href='graph.php'>График</a>
         <a href='logout.php'>Выйти</a>
     </div>
+    <?php } ?>
 </div>
 <!--header end -->
 <!-- content start-->
