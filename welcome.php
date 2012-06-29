@@ -17,4 +17,6 @@ if (isset($_POST['email']) && Validate::email($email)) {
 
 }
 
+Core::loadTemplate('header', array('title' => 'Дневник веса'));
 Core::loadTemplate('welcome');
+Core::loadTemplate('footer');
