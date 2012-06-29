@@ -2,9 +2,6 @@
 <html>
 
 <head>
-<!--    <meta charset="UTF-8" />-->
-<!--    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">-->
-
     <meta http-equiv="Content-Language" content="ru">
     <meta http-equiv="content-type" content="text/html; charset="windows-1251"/>
 
@@ -16,7 +13,7 @@
 
     <link rel="stylesheet" href="css/index.css">
 
-    <script type="text/javascript" src="js/jquery.min.1.7.1.js"></script>
+        <script type="text/javascript" src="js/jquery.min.1.7.1.js"></script>
 
 <?php if(isset($useChartScript) && $useChartScript) Core::loadTemplate('chart-script', array('weights' => $weights)) ?>
 
