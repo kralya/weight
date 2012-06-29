@@ -19,7 +19,7 @@
         AmCharts.ready(function () {
             // SERIAL CHART
             chart = new AmCharts.AmSerialChart();
-            chart.pathToImages = "../amcharts/images/";
+            chart.pathToImages = "/img/";
             chart.dataProvider = chartData;
             chart.marginLeft = 10;
             chart.categoryField = "year";
