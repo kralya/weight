@@ -32,7 +32,9 @@ class Weight
             $weights[$row['created_at']] = $row['weight'];
         }
 
-        return self::orderAndLimit($weights, $daysAgo);
+        $result = self::orderAndLimit($weights, $daysAgo);
+
+        return self::prepareForJavascript($result);
     }
 
     protected static function orderAndLimit($weights, $limit)
@@ -41,6 +43,18 @@ class Weight
         for ($i = 1; $i <= $limit; $i++) {
             $date = new DateTime(sprintf(' -%s days', ($limit - $i)));
             $results[$date->format('Y-m-d')] = isset($weights[$date->format('Y-m-d')]) ? $weights[$date->format('Y-m-d')] : '';
+        }
+
+        return $results;
+    }
+
+    // months in JS are zero-based, 0 means January.
+    // in PHP 1 means January. Decrease month number by one.
+    protected static function prepareForJavascript($input){
+        $results = array();
+        foreach($input as $date => $value){
+            $parts = explode('-', $date);
+            $results[$parts[0].'-'.($parts[1] - 1).'-'.$parts[2]] = $value;
         }
 
         return $results;
