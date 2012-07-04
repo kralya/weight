@@ -12,11 +12,13 @@
         <?php } ?>
 
     </div>
+
     <div>
 
         <?php foreach ($weights as $key => $value) { ?>
 
-        <div class="box-date" id="box-<?php echo $key ?>">
+        <div class="box-date">
+            <?php echo (isset($show[$key]) ? $show[$key] : '') ?>
             <?php echo $key ?>
         </div>
 
