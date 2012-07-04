@@ -36,15 +36,22 @@ div.header-menu span {
 }
 
 div.active {
-    width: 50px;
-    height: 20px;
+    padding-left: 30px;
+    padding-top: 20px;
+    background-image: url(../img/puzir1.png);
+    width: 70px;
+    height: 55px;
     display: block;
     margin-left: 100px;
 }
 
 div.box {
-    width: 50px;
-    height: 20px;
+    padding-left: 30px;
+    padding-top: 20px;
+    background-image: url(../img/puzir1.png);
+    width: 70px;
+    height: 55px;
+
     display: block;
     margin-left: 100px;
 }
