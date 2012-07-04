@@ -54,7 +54,8 @@ class Weight
         $results = array();
         foreach($input as $date => $value){
             $parts = explode('-', $date);
-            $results[$parts[0].'-'.($parts[1] - 1).'-'.$parts[2]] = $value;
+            $month  = ($parts[1] - 1 < 10)  ? '0'.($parts[1] - 1) : ($parts[1] - 1);
+            $results[$parts[0].'-'.$month.'-'.$parts[2]] = $value;
         }
 
         return $results;
