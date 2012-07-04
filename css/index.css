@@ -74,8 +74,8 @@ div.container div {
 }
 
 div.container {
-
-    padding-left: 100px;
+    float:left;
+    padding-left: 70px;
     height: 30px;
 }
 
