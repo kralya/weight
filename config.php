@@ -15,5 +15,5 @@ define('DAYS_AGO_GRAPH', 15);
 
 
 function __autoload($class_name) {
-	include 'class\\'.$class_name . '.class.php';
+	include './class/'.strtolower($class_name) . '.class.php';
 }
