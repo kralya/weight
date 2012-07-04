@@ -11,7 +11,7 @@
 /*header page*/
 div.header {
     width: 100%;
-    border: 1px dotted black;
+    /*border: 1px dotted black;*/
     height: 70px;
 }
 
@@ -26,8 +26,8 @@ div.header-menu span {
 }
 
 #content {
-    border: 1px dotted green;
-    height: 440px;
+    border: 0px dotted green;
+    height: 380px;
 }
 
 /*index page*/
@@ -36,6 +36,7 @@ div.header-menu span {
 }
 
 div.active {
+    margin-top: 150px;
     padding-left: 30px;
     padding-top: 20px;
     background-image: url(../img/puzir1.png);
@@ -46,6 +47,7 @@ div.active {
 }
 
 div.box {
+    margin-top: 150px;
     padding-left: 30px;
     padding-top: 20px;
     background-image: url(../img/puzir1.png);
@@ -72,7 +74,7 @@ div.container div {
 }
 
 div.container {
-    margin-top: 150px;
+
     padding-left: 100px;
     height: 30px;
 }
@@ -81,7 +83,7 @@ div.container {
 
 div.footer {
     width: 100%;
-    border: 1px dotted black;
+    /*border: 1px dotted black;*/
     height: 70px;
 }
 
