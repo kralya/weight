@@ -1,12 +1,27 @@
 <div class="container">
-    <input type="hidden" id="email" value="<?php echo $email ?>"/>
+    <div>
 
-    <?php foreach ($weights as $key => $value) { ?>
+        <input type="hidden" id="email" value="<?php echo $email ?>"/>
 
-    <div class="box" id="box-<?php echo $key ?>">
-        <?php echo $value ? $value : '...' ?>
+        <?php foreach ($weights as $key => $value) { ?>
+
+        <div class="box" id="box-<?php echo $key ?>">
+            <?php echo $value ? $value : '...' ?>
+        </div>
+
+        <?php } ?>
+
+    </div>
+    <div>
+
+        <?php foreach ($weights as $key => $value) { ?>
+
+        <div class="box-date" id="box-<?php echo $key ?>">
+            <?php echo $key ?>
+        </div>
+
+        <?php } ?>
     </div>
 
-    <?php } ?>
 </div>
 <script type="text/javascript" src="js/index-weight.js"></script>

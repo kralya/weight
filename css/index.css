@@ -56,13 +56,24 @@ div.box {
     margin-left: 100px;
 }
 
+div.box-date {
+    padding-left: 10px;
+    padding-top: 0px;
+    width: 90px;
+    height: 35px;
+
+    display: block;
+    margin-left: 100px;
+}
+
+
 div.container div {
     float: left;
 }
 
 div.container {
     margin-top: 150px;
-    padding-left: 200px;
+    padding-left: 100px;
     height: 30px;
 }
 
