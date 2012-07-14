@@ -27,6 +27,9 @@ $('.box').click(function () {
     $(this).hide();
     $('#input_selected').focus();
 
+    if($('#input_selected').val() == '...'){
+        $('#input_selected').select();
+    }
 
     $('#input_selected').click(function () {
         return false;
