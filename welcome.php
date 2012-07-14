@@ -4,7 +4,7 @@ include_once('config.php');
 $email = $_POST['email'];
 
 if (isset($_POST['email']) && !Validate::email($email)) {
-    $message = 'Email is not valid';
+    $message = 'Неверный формат';
 }
 
 if (isset($_POST['email']) && Validate::email($email)) {
