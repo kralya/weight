@@ -29,7 +29,7 @@
     </div>
     <?php if (!isset($notLogged)) { ?>
     <div class="header-menu">
-        <span><a href='index.php'>Главная</a></span>
+        <span><a href='index.php'>Ввести вес</a></span>
         <span><a href='graph.php'>График</a></span>
         <span><a href='logout.php'>Выйти</a></span>
     </div>
