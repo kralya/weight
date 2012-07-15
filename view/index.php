@@ -25,9 +25,6 @@
         <?php } ?>
     </div>
 
-    <div style="width: 100%; text-align: center; font-size: 150%; margin-top: 30px">
-        <a href='graph.php'>Посмотреть график:</a>
-    </div>
 
 </div>
 <script type="text/javascript" src="js/index-weight.js"></script>
