@@ -7,9 +7,18 @@ if (isset($_POST['email']) && !Validate::email($email)) {
     $message = 'Неверный формат';
 }
 
-if (isset($_POST['email']) && Validate::email($email)) {
+if (isset($_POST['email']) && Validate::email($email) || isset($_COOKIE['login'])) {
+
+    if(isset($_COOKIE['login'])){
+        $email = $_COOKIE['login'];
+    }
+
     if (!User::exists($email)) {
         User::create($email);
+    }
+
+    if(isset($_POST['remember'])){
+        setcookie("login", $email, time() + 3600 * 24 * 7 );
     }
 
     Auth::login($email);
