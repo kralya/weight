@@ -1,4 +1,7 @@
+<div style="text-align: center; font-size: 200%">¬вести вес:</div>
+
 <div class="container">
+
     <div>
 
         <input type="hidden" id="email" value="<?php echo $email ?>"/>
