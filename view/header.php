@@ -8,6 +8,7 @@
     <meta name="robots" content="INDEX, FOLLOW"/>
     <meta name="keywords" content="дневник, вес, график, изменение, похудеть"/>
     <meta name="description" content="Дневник веса, онлайн вес, следить за весом"/>
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon"/>
 
     <title><?php echo $title ?></title>
 
