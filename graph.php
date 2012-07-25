@@ -3,6 +3,12 @@ include_once('config.php');
 Auth::redirectUnlogged();
 $weights = Weight::getForDaysAgo(DAYS_AGO_GRAPH);
 
+$counter = 0;
+foreach($weights as $weight){
+    if(!empty($weight['weight'])){
+        $counter++;
+    }
+}
 Core::loadTemplate('header', array('weights' => $weights, 'useChartScript' => true, 'title' => 'Изменение веса'));
-Core::loadTemplate('graph');
+Core::loadTemplate('graph', array('displayWeight' => ($counter > 1) ));
 Core::loadTemplate('footer', array('link' => 'index.php', 'linkText' => 'Ввести вес:'));
