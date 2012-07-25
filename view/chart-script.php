@@ -6,10 +6,10 @@
     // months in JS are zero-based, 0 means January
     var chartData = [
     <?php foreach ($weights as $date => $weight) { ?>
-        <?php if (!empty($weight)) { ?>
+        <?php if (!empty($weight['weight'])) { ?>
             {
-                year:new Date(<?php echo str_replace('-', ', ', $date) ?>),
-                value: <?php echo $weight ?>
+                year:new Date(<?php echo str_replace('-', ', ', $weight['js-date']) ?>),
+                value: <?php echo $weight['weight'] ?>
             },
             <?php } ?>
         <?php } ?>

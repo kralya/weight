@@ -9,7 +9,7 @@
         <?php foreach ($weights as $key => $value) { ?>
 
         <div class="box" id="box-<?php echo $key ?>">
-            <?php echo $value ? $value : '...' ?>
+            <?php echo $value['weight'] ? $value['weight'] : '...' ?>
         </div>
 
         <?php } ?>

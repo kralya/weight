@@ -51,7 +51,9 @@ class Weight
         foreach($input as $date => $value){
             $parts = explode('-', $date);
             $month  = ($parts[1] - 1 < 10)  ? '0'.($parts[1] - 1) : ($parts[1] - 1);
-            $results[$parts[0].'-'.$month.'-'.$parts[2]] = $value;
+
+            $results[$date]['weight'] = $value;
+            $results[$date]['js-date'] = $parts[0].'-'.$month.'-'.$parts[2];
         }
 
         return $results;
