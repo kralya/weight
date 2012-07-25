@@ -25,7 +25,7 @@ if(!array_key_exists($date, $weights)){
 
 // Fix JS
 $parts = explode('-', $date);
-$date = $parts[0].'-'.($parts[1]+1).'-'.$parts[2];
+$date = $parts[0].'-'.$parts[1].'-'.$parts[2];
 
 // 2. update / insert values to DB
 Weight::set($date, $weight);
