@@ -10,7 +10,7 @@ class Auth
 
     public static function logout()
     {
-        setcookie("login", self::getEmail(), time() - 1 );
+        setcookie("login", '', time() - 3600 );
         unset($_SESSION[self::$user]);
     }
 

@@ -7,7 +7,7 @@ if (isset($_POST['email']) && !Validate::email($email)) {
     $message = 'Неверный формат';
 }
 
-if (isset($_POST['email']) && Validate::email($email) || isset($_COOKIE['login'])) {
+if (isset($_POST['email']) && Validate::email($email) || isset($_COOKIE['login']) && !empty($_COOKIE['login']) ) {
 
     if(isset($_COOKIE['login'])){
         $email = $_COOKIE['login'];
