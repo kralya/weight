@@ -4,5 +4,13 @@
     </div>
 
 <?php } else { ?>
+<!--    Масштаб:-->
+<!--    <select>-->
+<!--        <option>2 недели</option>-->
+<!--        <option>Месяц</option>-->
+<!--        <option>3 месяца</option>-->
+<!--        <option>6 месяцев</option>-->
+<!--        <option>Год</option>-->
+<!--    </select>-->
 <div id="chartdiv" style="width:100%; height:400px;"></div>
 <?php } ?>

@@ -1,7 +1,7 @@
 <?php
 include_once('config.php');
 Auth::redirectUnlogged();
-$weights = Weight::getForDaysAgo(DAYS_AGO_GRAPH);
+$weights = Weight::getForDaysAgo(10000);
 
 $counter = 0;
 foreach($weights as $weight){
