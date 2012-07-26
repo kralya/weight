@@ -21,8 +21,7 @@
         <?php foreach ($weights as $key => $value) { ?>
 
         <div class="box-date">
-            <?php echo (isset($show[$key]) ? $show[$key] : '') ?>
-            <?php echo $key ?>
+            <?php echo $value['display-date'] ?>
         </div>
 
         <?php } ?>
