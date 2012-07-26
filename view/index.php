@@ -1,4 +1,4 @@
-<div style="text-align: center; font-size: 200%">Ввести вес:</div>
+<div style="text-align: center; font-size: 200%">Ввести вес ( в КГ, с точностью до десятых ):</div>
 
 <div class="container">
 
