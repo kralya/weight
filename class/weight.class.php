@@ -30,7 +30,7 @@ class Weight
 
         $result = self::orderAndLimit($weights, $daysAgo);
 
-        return self::prepareForJavascript($result);
+        return self::prepareJavascriptAndDisplayDates($result);
     }
 
     protected static function orderAndLimit($weights, $limit)
@@ -46,7 +46,7 @@ class Weight
 
     // months in JS are zero-based, 0 means January.
     // in PHP 1 means January. Decrease month number by one.
-    protected static function prepareForJavascript($input)
+    protected static function prepareJavascriptAndDisplayDates($input)
     {
         $results = array();
 
