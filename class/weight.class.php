@@ -75,6 +75,7 @@ class Weight
         return $results;
     }
 
+    // TODO: move it out
     public static function replaceMonths($input){
         $months = array(
             'Jan' => 'Января', 'Feb' => 'Февраля', 'Mar' => 'Марта',
