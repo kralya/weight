@@ -68,10 +68,20 @@ class Weight
 
             if (isset($currentDates[$parts[0] . '-' . $parts[1] . '-' . $parts[2]])) {
                 $results[$date]['display-date'] = $currentDates[$parts[0] . '-' . $parts[1] . '-' . $parts[2]];
+                $results[$date]['display-date'] = self::replaceMonths($results[$date]['display-date']);
             }
         }
 
         return $results;
+    }
+
+    public static function replaceMonths($input){
+        $months = array(
+            'Jan' => 'Января', 'Feb' => 'Февраля', 'Mar' => 'Марта',
+            'Apr' => 'Апреля', 'May' => 'Мая', 'Jun' => 'Июня',
+            'Jul' => 'Июля', 'Aug' => 'Августа', 'Sep' => 'Сентября',
+            'Oct' => 'Октября', 'Nov' => 'Ноября', 'Dec' => 'Декабря');
+        return str_replace(array_keys($months), array_values($months), $input);
     }
 
     public static function set($date, $weight)
