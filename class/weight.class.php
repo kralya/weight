@@ -52,10 +52,10 @@ class Weight
 
         $currentDates = array(
             date('Y-m-d') => 'Сегодня, '.date('d M'),
-            date('Y-m-d', strtotime('-1 day')) => 'Вчера, '.date('d M'),
-            date('Y-m-d', strtotime('-2 day')) => 'Позавчера, '.date('d M'),
-            date('Y-m-d', strtotime('-3 day')) => '3 дня назад, '.date('d M'),
-            date('Y-m-d', strtotime('-4 day')) => '4 дня назад, '.date('d M'),
+            date('Y-m-d', strtotime('-1 day')) => 'Вчера, '.date(('d M'), strtotime('-1 day')),
+            date('Y-m-d', strtotime('-2 day')) => 'Позавчера, '.date(('d M'), strtotime('-2 day')),
+            date('Y-m-d', strtotime('-3 day')) => '3 дня назад, '.date(('d M'), strtotime('-3 day')),
+            date('Y-m-d', strtotime('-4 day')) => '4 дня назад, '.date(('d M'), strtotime('-4 day')),
         );
 
         foreach ($input as $date => $value) {
