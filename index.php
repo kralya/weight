@@ -5,8 +5,6 @@ Auth::redirectUnlogged();
 $weights = Weight::getForDaysAgo(DAYS_AGO_INDEX);
 $email = Auth::getEmail();
 
-$weights = array_reverse($weights);
-
 Core::loadTemplate('header', array('title' => 'Дневник веса'));
 Core::loadTemplate('index', array('weights' => $weights, 'email' => $email));
 Core::loadTemplate('footer', array('link' => 'graph.php', 'linkText' => 'Посмотреть график:'));
