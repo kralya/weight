@@ -1,9 +1,11 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta http-equiv="Content-Language" content="ru">
-    <meta http-equiv="content-type" content="text/html; charset="windows-1251"/>
+    <meta http-equiv="content-type" content="text/html; charset=" windows-1251
+    "/>
 
     <meta name="robots" content="INDEX, FOLLOW"/>
     <meta name="keywords" content="дневник, вес, график, изменение, похудеть"/>
@@ -12,7 +14,7 @@
 
     <title><?php echo $title ?></title>
 
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/all.css">
 
     <script type="text/javascript" src="js/jquery.min.1.7.1.js"></script>
 
@@ -20,22 +22,30 @@
 
 </head>
 <body>
-
-<!--header start -->
-<div class="header">
-    <div style="float: left">
-        <a href="index.php">
-            <img src="img/logo.png"/>
-        </a>
+<div class="wrapper">
+    <!--header start -->
+    <div class="header">
+        <div style="float: left">
+            <a href="index.php">
+                <img src="img/logo.png"/>
+            </a>
+        </div>
+        <?php if (!isset($notLogged)) { ?>
+        <div class="right-rail">
+            <ul>
+                <li class="wight">
+                    <div class="bg-bt"><a href="index.php">Ввести вес</a></div>
+                </li>
+                <li class="chart">
+                    <div class="bg-bt"><a href="graph.php">График</a></div>
+                </li>
+                <li class="quit">
+                    <div class="bg-bt"><a href="logout.php">Выйти</a></div>
+                </li>
+            </ul>
+        </div>
+        <?php } ?>
     </div>
-    <?php if (!isset($notLogged)) { ?>
-    <div class="header-menu">
-        <span><a href='index.php'>Ввести вес</a></span>
-        <span><a href='graph.php'>График</a></span>
-        <span><a href='logout.php'>Выйти</a></span>
-    </div>
-    <?php } ?>
-</div>
-<!--header end -->
-<!-- content start-->
-<div id="content">
+    <!--header end -->
+    <br class="clear"/>
+    <!-- content start-->

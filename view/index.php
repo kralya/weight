@@ -1,32 +1,28 @@
-<div style="text-align: center; font-size: 200%">Ввести вес ( в КГ, с точностью до десятых ):</div>
+<div class="layout">
+    <input type="hidden" id="email" value="<?php echo $email ?>"/>
 
-<div class="container">
-
-    <div>
-
-        <input type="hidden" id="email" value="<?php echo $email ?>"/>
-
+    <h1>Ввести вес ( в КГ, с точностью до десятых ):</h1>
+    <ul class="calculation">
         <?php foreach ($weights as $key => $value) { ?>
 
-        <div class="box" id="box-<?php echo $key ?>">
-            <?php echo $value['weight'] ? $value['weight'] : '...' ?>
-        </div>
+
+        <li>
+            <div class="wg">
+                <div class="h" id="box-<?php echo $key ?>">
+                    <?php echo $value['weight'] ? $value['weight'] : '...' ?>
+                    <div class="first">
+                        <div class="second"></div>
+                    </div>
+                </div>
+            </div>
+<?php $parts = explode(',', $value['display-date']) ?>
+
+
+            <span><?php echo $parts[0] ?>,</span><span class="date"><?php echo $parts[1] ?></span>
+        </li>
 
         <?php } ?>
+    </ul>
 
-    </div>
-
-    <div>
-
-        <?php foreach ($weights as $key => $value) { ?>
-
-        <div class="box-date">
-            <?php echo $value['display-date'] ?>
-        </div>
-
-        <?php } ?>
-    </div>
-
-
+    <script type="text/javascript" src="js/index-weight.js"></script>
 </div>
-<script type="text/javascript" src="js/index-weight.js"></script>
