@@ -1,5 +1,6 @@
 function hideBoxes() {
     $('.forms').hide();
+    $('.dates').show();
 }
 
 function sendWeight() {
@@ -18,7 +19,7 @@ function sendWeight() {
         var rawBoxId = $('.forms:visible').attr('id');
         var realBoxId = rawBoxId.replace('-form', '').replace('box-', '');
         $('#text-' + realBoxId).text(response);
-        $('.forms').hide();
+        hideBoxes();
     });
 }
 
@@ -43,6 +44,9 @@ $('.box').click(function () {
     var text = $(this).text();
     var id = $(this).attr('id');
     $('#' + id + '-form').show();
+
+    $('#date-' + id.replace('box-','')).hide();
+
     var input = '#' + id + '-input_selected';
 
     $(input).val($.trim(text));

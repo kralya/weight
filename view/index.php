@@ -26,7 +26,10 @@
                 </div>
             </div>
             <?php $parts = explode(',', $value['display-date']) ?>
-            <span><?php echo $parts[0] ?>,</span><span class="date"><?php echo $parts[1] ?></span>
+            <div id="date-<?php echo $key ?>" class="dates">
+                <span><?php echo $parts[0] ?>,</span><span class="date"><?php echo $parts[1] ?></span>
+            </div>
+
         </li>
 
         <?php } ?>
