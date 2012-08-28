@@ -20,10 +20,8 @@
 
                     <div style="margin-top: 10px; display: none;" id="box-<?php echo $key ?>-form" class="forms">
                         <input class="tx" type="text" id="box-<?php echo $key ?>-input_selected"/>
-                        <input class="bt input_submit" value="Сохранить" id="box-<?php echo $key ?>-button"
-                               type="button"/>
+                        <input class="bt input_submit" value="Сохранить" id="box-<?php echo $key ?>-button" type="button"/>
                     </div>
-
 
                 </div>
             </div>
