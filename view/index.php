@@ -16,8 +16,6 @@
                 </div>
             </div>
 <?php $parts = explode(',', $value['display-date']) ?>
-
-
             <span><?php echo $parts[0] ?>,</span><span class="date"><?php echo $parts[1] ?></span>
         </li>
 

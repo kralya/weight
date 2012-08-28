@@ -12,5 +12,5 @@
 <!--        <option>6 месяцев</option>-->
 <!--        <option>Год</option>-->
 <!--    </select>-->
-<div id="chartdiv" style="width:100%; height:400px;"></div>
+<div id="chartdiv" style="width:100%; height:290px;"></div>
 <?php } ?>
