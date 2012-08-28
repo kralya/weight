@@ -82,10 +82,12 @@ ul, ol{
     background:#e0e0e0 url(../img/chart.png) 9px 5px no-repeat;
 }
 .right-rail .quit a{
-    background:#b2c8da url(../img/quit.png) 9px 4px no-repeat;
+    /*background:#b2c8da url(../img/quit.png) 9px 4px no-repeat;*/
+    background:#e0e0e0 url(../img/quit.png) 9px 4px no-repeat;
 }
 .right-rail .quit a:hover{
-    background-color:#e0e0e0;
+    /*background-color:#e0e0e0;*/
+    background-color:#b2c8da;
 }
 .layout{
     background: #fff;
