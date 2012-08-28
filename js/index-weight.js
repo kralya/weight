@@ -16,8 +16,9 @@ function sendWeight() {
             return false;
         }
 
-        var realBoxId = $('.forms:visible').attr('id').replace('-form','');
-        $('#' + realBoxId).text(response);
+        var realBoxId = $('.forms:visible').attr('id').replace('-form','').replace('box-','');
+        $('#text-' + realBoxId).text(response);
+        $('.forms').hide();
     });
 }
 
