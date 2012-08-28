@@ -1,13 +1,14 @@
 function hideBoxes() {
-    $('.box').show();
-    $('.active').remove();
+    $('.forms').hide();
 }
 
 function sendWeight() {
     var email = $('#email').val();
-    var weight = $('#input_selected').val();
-    var boxId = $('.box:hidden').attr('id');
-    var date = boxId.replace('box-', '');
+
+    var boxId = $('.forms:visible').attr('id');
+    var date = boxId.replace('box-', '').replace('-form','');
+    var input = '#' + boxId.replace('-form','') + '-input_selected';
+    var weight = $(input).val();
 
     $.post('save.php', {email:email, weight:weight, date:date, sid:Math.random()}, function (response) {
 
@@ -15,7 +16,8 @@ function sendWeight() {
             return false;
         }
 
-        $('#' + boxId).text(response);
+        var realBoxId = $('.forms:visible').attr('id').replace('-form','');
+        $('#' + realBoxId).text(response);
     });
 }
 
@@ -23,19 +25,25 @@ $('.box').click(function () {
     hideBoxes();
 
     var text = $(this).text();
-    $(this).before('<div class="active"> <input type="text" id="input_selected" value="' + $.trim(text) + '"  onfocus="this.value = this.value;" /> <input type="submit" class="input_submit" value="Сохранить"/></div>');
-    $(this).hide();
-    $('#input_selected').focus();
+    var id = $(this).attr('id');
+    $('#' + id + '-form').show();
+    var input = '#' + id + '-input_selected';
 
-    if($('#input_selected').val() == '...'){
-        $('#input_selected').select();
+//    $(id+'-form').after('<div class="active"> <input type="text" id="input_selected" value="' + $.trim(text) + '"  onfocus="this.value = this.value;" /> <input type="submit" class="input_submit" value="Сохранить"/></div>');
+//    $(this).hide();
+
+    $(input).val($.trim(text));
+    $(input).focus();
+
+    if($(input).val() == '...'){
+        $(input).select();
     }
 
-    $('#input_selected').click(function () {
+    $(input).click(function () {
         return false;
     });
 
-    $('#input_selected').keydown(function (elem) {
+    $('.input_submit').keydown(function (elem) {
         if (elem.which == 13) {
             sendWeight();
             hideBoxes();
