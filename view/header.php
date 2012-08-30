@@ -4,8 +4,7 @@
 
 <head>
     <meta http-equiv="Content-Language" content="ru">
-    <meta http-equiv="content-type" content="text/html; charset=" windows-1251
-    "/>
+    <meta http-equiv="content-type" content="text/html; charset=windows-1251"/>
 
     <meta name="robots" content="INDEX, FOLLOW"/>
     <meta name="keywords" content="дневник, вес, график, изменение, похудеть"/>
