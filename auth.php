@@ -25,5 +25,10 @@ if(isset($decoded['email'])){
     return;
 }
 
+// redirect to welcome.php with 'sorry' message
+header('Location: http://www.deposit.zp.ua/weight/welcome.php
+return;
 echo 'HEY, SOMETHING IS WRONG! NO EMAIL RESULTS, REDIRECT ME FROM hERE!';
-//var_dump($result);
+
+
+var_dump($decoded);
