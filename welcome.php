@@ -1,6 +1,10 @@
 <?php
 include_once('config.php');
 
+if(empty($_POST['email'])){
+    $_POST['email'] = $_GET['email'];
+}
+
 $email = $_POST['email'];
 
 if (isset($_POST['email']) && !Validate::email($email)) {
