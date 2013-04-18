@@ -8,7 +8,7 @@ function sendWeight() {
     var boxId = $('.forms:visible').attr('id');
     var date = boxId.replace('box-', '').replace('-form', '');
     var input = '#' + boxId.replace('-form', '') + '-input_selected';
-    var weight = $(input).val();
+    var weight = $(input).val().replace(',','.');
 
     $.post('save.php', {email:email, weight:weight, date:date, sid:Math.random()}, function (response) {
 
