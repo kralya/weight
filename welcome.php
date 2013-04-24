@@ -30,6 +30,6 @@ if (isset($_POST['email']) && Validate::email($email) || isset($_COOKIE['login']
 
 }
 
-Core::loadTemplate('header', array('title' => 'Дневник веса', 'notLogged' => true));
+Core::loadTemplate('av_header', array('title' => 'Дневник веса', 'notLogged' => true));
 Core::loadTemplate('welcome', array('message' => $message, 'email' => $email));
-Core::loadTemplate('footer');
+Core::loadTemplate('av_footer');
