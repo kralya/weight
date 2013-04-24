@@ -16,4 +16,5 @@ ToDo:
 
 - add router / routes;
 - internationalize to English;
-- add possibility to delete records.
+- add possibility to delete records;
+- add contact form.
