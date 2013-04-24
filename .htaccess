@@ -1,0 +1,5 @@
+RewriteEngine on
+RewriteBase /
+
+#RewriteCond ^index.php
+RewriteRule ^index.php av_index.php
