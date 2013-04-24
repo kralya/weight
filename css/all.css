@@ -319,3 +319,11 @@ ul, ol {
     width: 180px;
     margin: 10px auto 45px;
 }
+
+.header img{
+    width: 200px;
+}
+
+.header .left{
+    float: left;
+}
