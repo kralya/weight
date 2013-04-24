@@ -77,6 +77,6 @@
     // this method is called when chart is first inited as we listen for "dataUpdated" event
     function zoomChart() {
         // different zoom methods can be used - zoomToIndexes, zoomToDates, zoomToCategoryValues
-        chart.zoomToDates(new Date(2012, 0), new Date(2012, 12));
+        chart.zoomToDates(new Date(2012, 0), new Date(<?php echo date("Y")+1 ?>, 0));
     }
 </script>
