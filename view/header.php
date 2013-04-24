@@ -24,7 +24,7 @@
 <div class="wrapper">
     <!--header start -->
     <div class="header">
-        <div style="float: left">
+        <div class="left">
             <a href="index.php">
                 <img src="img/logo.png"/>
             </a>
