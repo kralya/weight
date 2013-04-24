@@ -1,5 +1,7 @@
 Website for weight control.
 
+You enter your weight daily and observe a nice looking graph. Hopefully, it goes down!
+
 Live version is located at http://www.deposit.zp.ua
 
 ======
