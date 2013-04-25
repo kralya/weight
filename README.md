@@ -12,7 +12,8 @@ Default www folder and all subsequent folders encoding: windows 1251.
 
 ToDo:
 
-- add router / routes;
+- fix identity loginza issue;
+- add routes and concentrate it in the same place;
 - internationalize to English;
 - add possibility to delete records;
 - add contact form.

@@ -25,10 +25,14 @@ if(isset($decoded['email'])){
     return;
 }
 
+//if(isset($decoded['identity'])){
+//    header('Location: http://www.deposit.zp.ua/welcome?identity='.$decoded['identity']);
+//    return;
+//}
+
 // redirect to welcome.php with 'sorry' message
 header('Location: http://www.deposit.zp.ua/welcome');
 return;
+
 echo 'HEY, SOMETHING IS WRONG! NO EMAIL RESULTS, REDIRECT ME FROM hERE!';
-
-
 var_dump($decoded);
