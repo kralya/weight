@@ -2,4 +2,5 @@ RewriteEngine on
 RewriteBase /
 
 RewriteRule ^index.php av_index.php [L]
+
 RewriteRule ^$ av_index.php [L]

@@ -15,7 +15,7 @@
 
     <link rel="stylesheet" href="css/all.css">
 
-    <script type="text/javascript" src="js/jquery.min.1.7.1.js"></script>
+    <script type="text/javascript" src="js/jquery.min.1.7.1.avjs"></script>
 
     <?php if (isset($useChartScript) && $useChartScript) Core::loadTemplate('chart-script', array('weights' => $weights)) ?>
 

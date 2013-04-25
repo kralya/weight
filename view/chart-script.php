@@ -1,4 +1,4 @@
-<script src="js/amcharts.js" type="text/javascript"></script>
+<script src="js/amcharts.avjs" type="text/javascript"></script>
 <script type="text/javascript">
     var chart;
     var graph;

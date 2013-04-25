@@ -35,5 +35,5 @@
         <?php } ?>
     </ul>
 
-    <script type="text/javascript" src="js/index-weight.js"></script>
+    <script type="text/javascript" src="js/index-weight.avjs"></script>
 </div>
