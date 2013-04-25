@@ -9,7 +9,7 @@ $server = 'localhost';
 mysql_connect($server, $username, $password) or die('failed to connect');
 mysql_select_db($db);
 
-define('WELCOME_PAGE', 'welcome.php');
+define('WELCOME_PAGE', '/welcome');
 define('DAYS_AGO_INDEX', 5);
 
 function __autoload($class_name) {

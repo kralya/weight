@@ -26,7 +26,7 @@ if (isset($_POST['email']) && Validate::email($email) || isset($_COOKIE['login']
     }
 
     Auth::login($email);
-    Utility::redirect('index.php');
+    Utility::redirect('/');
 
 }
 

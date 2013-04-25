@@ -26,7 +26,7 @@ if(isset($decoded['email'])){
 }
 
 // redirect to welcome.php with 'sorry' message
-header('Location: http://www.deposit.zp.ua/weight/welcome.php');
+header('Location: http://www.deposit.zp.ua/weight/welcome');
 return;
 echo 'HEY, SOMETHING IS WRONG! NO EMAIL RESULTS, REDIRECT ME FROM hERE!';
 

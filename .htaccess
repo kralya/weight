@@ -1,6 +1,9 @@
 RewriteEngine on
 RewriteBase /
 
-RewriteRule ^index.php av_index.php [L]
-
+RewriteRule ^welcome$ welcome.php [L]
+RewriteRule ^logout logout.php [L]
+RewriteRule ^graph graph.php [L]
+RewriteRule ^index.php$ av_index.php [L]
 RewriteRule ^$ av_index.php [L]
+

@@ -25,7 +25,7 @@
     <!--header start -->
     <div class="header">
         <div class="left">
-            <a href="index.php">
+            <a href="/">
                 <img width="200px" src="img/logo.png"/>
             </a>
         </div>
@@ -33,13 +33,13 @@
         <div class="right-rail">
             <ul>
                 <li class="wight">
-                    <div class="bg-bt"><a href="index.php">Ввести вес</a></div>
+                    <div class="bg-bt"><a href="/">Ввести вес</a></div>
                 </li>
                 <li class="chart">
-                    <div class="bg-bt"><a href="graph.php">График</a></div>
+                    <div class="bg-bt"><a href="/graph">График</a></div>
                 </li>
                 <li class="quit">
-                    <div class="bg-bt"><a href="logout.php">Выйти</a></div>
+                    <div class="bg-bt"><a href="/logout">Выйти</a></div>
                 </li>
             </ul>
         </div>
