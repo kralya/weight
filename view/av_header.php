@@ -26,7 +26,7 @@
     <div class="header">
         <div class="left">
             <a href="index.php">
-                <img src="img/logo.png"/>
+                <img width="200px" src="img/logo.png"/>
             </a>
         </div>
         <?php if (!isset($notLogged)) { ?>
