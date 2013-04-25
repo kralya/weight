@@ -1,4 +1,5 @@
 <?php
+include_once('config.php');
 $ch = curl_init();
 
 // установка URL и других необходимых параметров
@@ -22,7 +23,7 @@ $decoded = json_decode($result, true);
 
 if(isset($decoded['email'])){
 //    header('Location: http://www.deposit.zp.ua/welcome?email='.$decoded['email']);
-    header('Location: /'.WELCOME_PAGE.'?email='.$decoded['email']);
+    header('Location: http://www.deposit.zp.ua'.WELCOME_PAGE.'?email='.$decoded['email']);
     return;
 }
 
