@@ -11,4 +11,4 @@ foreach($weights as $weight){
 }
 Core::loadTemplate('av_header', array('weights' => $weights, 'useChartScript' => true, 'title' => 'Изменение веса'));
 Core::loadTemplate('graph', array('displayWeight' => ($counter > 1) ));
-Core::loadTemplate('av_footer', array('link' => 'index.php', 'linkText' => 'Ввести вес:'));
+Core::loadTemplate('av_footer', array('link' => INDEX_PAGE, 'linkText' => 'Ввести вес:'));

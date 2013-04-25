@@ -21,7 +21,8 @@ curl_close($ch);
 $decoded = json_decode($result, true);
 
 if(isset($decoded['email'])){
-    header('Location: http://www.deposit.zp.ua/welcome?email='.$decoded['email']);
+//    header('Location: http://www.deposit.zp.ua/welcome?email='.$decoded['email']);
+    header('Location: /'.WELCOME_PAGE.'?email='.$decoded['email']);
     return;
 }
 
