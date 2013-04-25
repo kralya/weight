@@ -21,12 +21,12 @@ curl_close($ch);
 $decoded = json_decode($result, true);
 
 if(isset($decoded['email'])){
-    header('Location: http://www.deposit.zp.ua/weight/welcome.php?email='.$decoded['email']);
+    header('Location: http://www.deposit.zp.ua/welcome?email='.$decoded['email']);
     return;
 }
 
 // redirect to welcome.php with 'sorry' message
-header('Location: http://www.deposit.zp.ua/weight/welcome');
+header('Location: http://www.deposit.zp.ua/welcome');
 return;
 echo 'HEY, SOMETHING IS WRONG! NO EMAIL RESULTS, REDIRECT ME FROM hERE!';
 
