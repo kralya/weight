@@ -1,4 +1,5 @@
 <?php
+// AJAX controller
 include_once('config.php');
 
 $email = $_POST['email'];
