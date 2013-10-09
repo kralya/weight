@@ -13,7 +13,6 @@
             },
             <?php } ?>
         <?php } ?>
-
     ];
 
     AmCharts.ready(function () {
@@ -37,6 +36,9 @@
         categoryAxis.parseDates = true; // as our data is date-based, we set parseDates to true
         categoryAxis.minPeriod = "DD"; // our data is yearly, so we set minPeriod to YYYY
         categoryAxis.gridAlpha = 0;
+        categoryAxis.dateFormats = [{period:'fff',format:'JJ:NN:SS'},{period:'ss',format:'JJ:NN:SS'},{period:'mm',format:'JJ:NN'},{period:'hh',format:'JJ:NN'},{period:'DD',format:'MMM DD EEEE'},{period:'WW',format:'MMM DD EEE'},{period:'MM',format:'MMM'},{period:'YYYY',format:'YYYY'}];
+        categoryAxis.boldPeriodBeginning = true;
+        categoryAxis.parseDates = true;
 
         // value
         var valueAxis = new AmCharts.ValueAxis();
@@ -54,6 +56,7 @@
         graph.lineThickness = 2;
         graph.valueField = "value";
         chart.addGraph(graph);
+
 
         // CURSOR
         var chartCursor = new AmCharts.ChartCursor();
