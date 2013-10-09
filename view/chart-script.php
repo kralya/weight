@@ -46,6 +46,8 @@
         valueAxis.inside = true;
         chart.addValueAxis(valueAxis);
 
+        AmCharts.dayNames = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четвег', 'Пятница', 'Суббота'];
+
         // GRAPH
         graph = new AmCharts.AmGraph();
         graph.type = "smoothedLine"; // this line makes the graph smoothed line.
