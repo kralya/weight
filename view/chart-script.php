@@ -1,3 +1,5 @@
+<?php //var_dump($trendPoints); ?>
+
 <script src="js/amcharts.avjs" type="text/javascript"></script>
 <script type="text/javascript">
     var chart;
@@ -70,14 +72,20 @@
         graph.fillAlphas = "0.4";
         chart.addGraph(graph);
 
-//        trendLine = new AmCharts.TrendLine();
-//        var trendLine = new AmCharts.TrendLine();
-//        trendLine.initialDate = new Date(2013, 09, 02); // 12 is hour - to start trend line in the middle of the day
-//        trendLine.finalDate = new Date(2013, 09, 06);
-//        trendLine.initialValue = 88;
-//        trendLine.finalValue = 86;
-//        trendLine.lineColor = "green";
-//        chart.addTrendLine(trendLine);
+        <?php if(is_array($trendPoints)){ ?>
+
+        trendLine = new AmCharts.TrendLine();
+        var trendLine = new AmCharts.TrendLine();
+        trendLine.initialDate = new Date(<?php echo $trendPoints[0][0]?>); // 12 is hour - to start trend line in the middle of the day
+        trendLine.initialValue = <?php echo $trendPoints[0][1]?>;
+
+        trendLine.finalDate = new Date(<?php echo $trendPoints[1][0]?>);
+        trendLine.finalValue = <?php echo $trendPoints[1][1]?>;
+
+        trendLine.lineColor = "green";
+        chart.addTrendLine(trendLine);
+
+        <?php } ?>
 
         // CURSOR
         var chartCursor = new AmCharts.ChartCursor();

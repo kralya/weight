@@ -17,7 +17,7 @@
 
     <script type="text/javascript" src="js/jquery.min.1.7.1.avjs"></script>
 
-    <?php if (isset($useChartScript) && $useChartScript) Core::loadTemplate('chart-script', array('weights' => $weights)) ?>
+    <?php if (isset($useChartScript) && $useChartScript) Core::loadTemplate('chart-script', array('weights' => $weights, 'trendPoints' => $trendPoints)) ?>
 
     <script type="text/javascript">
 

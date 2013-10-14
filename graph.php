@@ -8,16 +8,12 @@ $period = $_GET['trend'];
 $days = array('week' => 7, 'month' => 30, 'year' => 365);
 $totalDays = array_key_exists($period, $days) ? $days[$period] : 0;
 
+if($totalDays){
 $points = Weight::getPositiveWeightForDaysAgo($totalDays);
-//var_dump($points);
-
 $trendPoints = Weight::getTrendFor($points);
-var_dump($trendPoints);
-
-//$trendPoints =
-// class to calculate trend points
-//
-//
+}else{
+    $trendPoints = null;
+}
 
 $counter = 0;
 foreach($weights as $key=>$weight){
@@ -29,6 +25,6 @@ foreach($weights as $key=>$weight){
     }
 }
 
-Core::loadTemplate('av_header', array('weights' => $weights, 'useChartScript' => true, 'title' => 'График веса'));
+Core::loadTemplate('av_header', array('weights' => $weights, 'useChartScript' => true, 'title' => 'График веса', 'trendPoints' => $trendPoints));
 Core::loadTemplate('graph', array('displayWeight' => ($counter > 1) ));
 Core::loadTemplate('av_footer', array('link' => INDEX_PAGE, 'linkText' => 'Ввести вес:'));
