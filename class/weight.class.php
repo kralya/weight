@@ -4,14 +4,40 @@ class Weight
 {
     public static function getTrendFor($weight)
     {
-        // if amount of points < 2, return;
-        // split array to two halves: left (up to middle, including it if there is even amount) and right, from middle to end element
+// test code: make $total odd
+//        foreach($weight as $key=>$value){
+//            unset($weight[$key]);
+//            break;
+//        }
+
+        $total = count($weight);
+
+// if amount of points < 2, return;
+        if(2 > $total){
+            return;
+        }
+
+        $even = $total % 2 === 0;
+
+// split array to two halves: left (up to middle, including it if there is even amount) and right, from middle to end element
+        if($even){
+            $weightFirst = array_slice($weight, 0, $total/2);
+            $weightSecond = array_slice($weight, $total/2, $total/2);
+        }else{
+            $weightFirst = array_slice($weight, 0, ceil($total/2));
+            $weightSecond = array_slice($weight, floor($total/2), ceil($total/2));
+        }
+
+
+
         // count two sums: sum of 'left' and sum of 'right' sub-arrays.
         // count arithmetical means of these sums. It is two Y ordinate values.
         // count two sums of dates of 'left' and 'right' of 'left' and 'right' sub-arrays.
         // count arithmetical means of these sums. It is two X ordinate values.
         // return two points, X1Y1 and X2Y2
+        // then recalculate these points to include integer dates
 
+        return $weight;
     }
 
     public static function get($date)
