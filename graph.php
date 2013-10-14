@@ -7,9 +7,8 @@ $period = $_GET['trend'];
 
 $days = array('week' => 7, 'month' => 30, 'year' => 365);
 $totalDays = array_key_exists($period, $days) ? $days[$period] : 0;
-var_dump($totalDays);
 
-$points = Weight::getForDaysAgo($totalDays);
+$points = Weight::getPositiveWeightForDaysAgo($totalDays);
 var_dump($points);
 //$trendPoints =
 // class to calculate trend points

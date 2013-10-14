@@ -2,9 +2,15 @@
 
 class Weight
 {
-    public static function getTrendFor($daysAgo)
+    public static function getTrendFor($weight)
     {
-        $points = Weight::getForDaysAgo($daysAgo);
+        // if amount of points < 2, return;
+        // split array to two halves: left (up to middle, including it if there is even amount) and right, from middle to end element
+        // count two sums: sum of 'left' and sum of 'right' sub-arrays.
+        // count arithmetical means of these sums. It is two Y ordinate values.
+        // count two sums of dates of 'left' and 'right' of 'left' and 'right' sub-arrays.
+        // count arithmetical means of these sums. It is two X ordinate values.
+        // return two points, X1Y1 and X2Y2
 
     }
 
@@ -21,12 +27,24 @@ class Weight
         return $row['weight'];
     }
 
+    public static function getPositiveWeightForDaysAgo($daysAgo)
+    {
+        $weights = self::getForDaysAgo($daysAgo);
+        foreach($weights as $key => $weight){
+            if($weight['weight'] == ''){
+                unset($weights[$key]);
+            }
+        }
+
+        return $weights;
+    }
+
     public static function getForDaysAgo($daysAgo)
     {
         $email = Auth::getEmail();
         $finish = new DateTime("-$daysAgo days");
 
-        $query = 'SELECT weight, w.created_at FROM weight w, user u WHERE u.id = w.id_user AND u.email = "%s" AND w.created_at > "%s"';
+        $query = 'SELECT weight, w.created_at FROM weight w, user u WHERE u.id = w.id_user AND u.email = "%s" AND w.created_at > "%s" AND w.weight <> ""';
         $res = mysql_query(sprintf($query, $email, $finish->format('Y-m-d')));
 
         $weights = array();
