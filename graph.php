@@ -26,5 +26,5 @@ foreach ($weights as $key => $weight) {
 }
 
 Core::loadTemplate('av_header', array('weights' => $weights, 'useChartScript' => true, 'title' => 'График веса', 'trendPoints' => $trendPoints));
-Core::loadTemplate('graph', array('displayWeight' => ($counter > 1)));
+Core::loadTemplate('graph', array('displayWeight' => ($counter > 1), 'period' => $period));
 Core::loadTemplate('av_footer', array('link' => INDEX_PAGE, 'linkText' => 'Ввести вес:'));
