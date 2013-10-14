@@ -10,11 +10,11 @@
     <?php foreach ($weights as $date => $weight) { ?>
         <?php if (!empty($weight['weight'])) { ?>
             {
-                'year': new Date(<?php echo str_replace('-', ', ', $weight['js-date']) ?>),
-                'value': '<?php echo $weight['weight'] ?>',
-<?php if(isset($weight['color'])){ ?>
-                'color': "<?php echo $weight['color'] ?>"
-<?php } ?>
+                'year':new Date(<?php echo str_replace('-', ', ', $weight['js-date']) ?>),
+                'value':'<?php echo $weight['weight'] ?>',
+                <?php if (isset($weight['color'])) { ?>
+                'color':"<?php echo $weight['color'] ?>"
+                <?php } ?>
             },
             <?php } ?>
         <?php } ?>
@@ -41,7 +41,16 @@
         categoryAxis.parseDates = true; // as our data is date-based, we set parseDates to true
         categoryAxis.minPeriod = "DD"; // our data is yearly, so we set minPeriod to YYYY
         categoryAxis.gridAlpha = 0;
-        categoryAxis.dateFormats = [{period:'fff',format:'JJ:NN:SS'},{period:'ss',format:'JJ:NN:SS'},{period:'mm',format:'JJ:NN'},{period:'hh',format:'JJ:NN'},{period:'DD',format:'MMM DD EEEE'},{period:'WW',format:'MMM DD EEE'},{period:'MM',format:'MMM'},{period:'YYYY',format:'YYYY'}];
+        categoryAxis.dateFormats = [
+            {period:'fff', format:'JJ:NN:SS'},
+            {period:'ss', format:'JJ:NN:SS'},
+            {period:'mm', format:'JJ:NN'},
+            {period:'hh', format:'JJ:NN'},
+            {period:'DD', format:'MMM DD EEEE'},
+            {period:'WW', format:'MMM DD EEE'},
+            {period:'MM', format:'MMM'},
+            {period:'YYYY', format:'YYYY'}
+        ];
         categoryAxis.boldPeriodBeginning = true;
 
         // value
@@ -72,7 +81,7 @@
         graph.fillAlphas = "0.4";
         chart.addGraph(graph);
 
-        <?php if(is_array($trendPoints)){ ?>
+    <?php if (is_array($trendPoints)) { ?>
 
         trendLine = new AmCharts.TrendLine();
         var trendLine = new AmCharts.TrendLine();
@@ -109,6 +118,6 @@
     // this method is called when chart is first inited as we listen for "dataUpdated" event
     function zoomChart() {
         // different zoom methods can be used - zoomToIndexes, zoomToDates, zoomToCategoryValues
-        chart.zoomToDates(new Date(2012, 0), new Date(<?php echo date("Y")+1 ?>, 0));
+        chart.zoomToDates(new Date(2012, 0), new Date(<?php echo date("Y") + 1 ?>, 0));
     }
 </script>
