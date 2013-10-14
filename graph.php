@@ -5,7 +5,7 @@ $period = $_GET['trend'];
 
 $days = array('week' => 7, 'month' => 30, 'year' => 365);
 $totalDaysZ = array_key_exists($period, $days) ? $days[$period] : 10000;
-$totalDays = array_key_exists($period, $days) ? $days[$period] : 10000;
+$totalDays = array_key_exists($period, $days) ? $days[$period] : 0;
 $weights = Weight::getForDaysAgo($totalDaysZ);
 
 if ($totalDays) {
