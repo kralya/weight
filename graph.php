@@ -10,7 +10,7 @@ $weights = Weight::getForDaysAgo($totalDaysZ);
 
 if ($totalDays) {
     $points = Weight::getPositiveWeightForDaysAgo($totalDays);
-    $trendPoints = Weight::getTrendFor($points);
+    $trendPoints = Weight::getTrendFor($points, $totalDays);
 } else {
     $trendPoints = null;
 }

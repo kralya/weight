@@ -2,7 +2,7 @@
 
 class Weight
 {
-    public static function getTrendFor($weight)
+    public static function getTrendFor($weight, $daysAgo)
     {
         $total = count($weight);
 
@@ -39,19 +39,42 @@ class Weight
         $sumSecondX = array_sum( array_map( $countFunctionX, $weightSecond) );
 
 // count arithmetical means of these sums. It is two X ordinate values.
-        $xFirst = $sumFirstX / ceil($total/2);
-        $xSecond = $sumSecondX / ceil($total/2);
+        $xFirstTimestamp = $sumFirstX / ceil($total/2);
+        $xSecondTimestamp = $sumSecondX / ceil($total/2);
 
 // format dates to usual format
         $xdFirst = new DateTime();
-        $xdFirst->setTimestamp($xFirst);
+        $xdFirst->setTimestamp($xFirstTimestamp);
         $xdSecond = new DateTime();
-        $xdSecond->setTimestamp($xSecond);
+        $xdSecond->setTimestamp($xSecondTimestamp);
 
-        return array(
-            array($xdFirst->format('Y, m,d, H'), $yFirst),
-            array($xdSecond->format('Y, m, d, H'), $ySecond)
-        );
+// At this point we got two points. Unfortunately, these are in the middle. We need points at the edge of screen.
+// First end of interval is Today-$daysAgo, second is today.
+
+// count coefficient:
+
+        $ratio = ($yFirst - $ySecond) / ($xFirstTimestamp - $xSecondTimestamp);
+// -1 month is because we used javascript to operate, there is 1 month difference
+// TODO: check edge values of month for bugs.
+
+        $xTodayTimestamp = (new DateTime('-1 month'))->getTimestamp();
+        $xVeryFirstTimestamp = (new DateTime('-1month -'.$daysAgo.' days'))->getTimestamp();
+
+// according to previous ratio calculation, get equations for today X and Y, and for -$daysAgo point X and Y
+#        $ratio = ($yFirst - $yToday) / ($xFirstTimestamp - $xTodayTimestamp);
+#        $ratio * ($xFirstTimestamp - $xTodayTimestamp) = $yFirst - $yToday;
+        $yToday = $yFirst - $ratio * ($xFirstTimestamp - $xTodayTimestamp);
+#        $ratio = ($yVeryFirst - $yFirst) / ($xVeryFirstTimestamp - $xFirstTimestamp);
+        $yVeryFirst = $ratio *  ($xVeryFirstTimestamp - $xFirstTimestamp) + $yFirst;
+
+        $xVeryFirstDate = (new DateTime())->setTimestamp($xVeryFirstTimestamp);
+        $xTodayDate = (new DateTime())->setTimestamp($xTodayTimestamp);
+
+        return (array(
+            array($xVeryFirstDate->format('Y, m,d, H'), round($yVeryFirst, 1)),
+            array($xTodayDate->format('Y, m, d, H'), round($yToday, 1))
+        ));
+
     }
 
     public static function get($date)
