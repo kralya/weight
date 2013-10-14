@@ -1,5 +1,22 @@
 <?php
 
+class MyDateTime extends DateTime
+{
+    public function setTimestamp( $timestamp )
+    {
+        $date = getdate( ( int ) $timestamp );
+        $this->setDate( $date['year'] , $date['mon'] , $date['mday'] );
+        $this->setTime( $date['hours'] , $date['minutes'] , $date['seconds'] );
+
+        return $this;
+    }
+
+    public function getTimestamp()
+    {
+        return $this->format( 'U' );
+    }
+}
+
 class Weight
 {
     public static function getTrendFor($weight, $daysAgo)
@@ -23,9 +40,13 @@ class Weight
         }
 
 // count two sums: sum of 'left' and sum of 'right' sub-arrays.
-        $countFunctionY = function($value){return $value['weight'];};
-        $sumFirstY = array_sum( array_map( $countFunctionY, $weightFirst) );
-        $sumSecondY = array_sum( array_map( $countFunctionY, $weightSecond) );
+        function countZ($value){
+            return $value['weight'];
+        }
+
+//        $countFunctionY = function($value){return $value['weight'];};
+        $sumFirstY = array_sum( array_map( 'countZ', $weightFirst) );
+        $sumSecondY = array_sum( array_map( 'countZ', $weightSecond) );
 
 // count arithmetical means of these sums. It is two Y ordinate values.
         $yFirst = $sumFirstY / ceil($total/2);
@@ -33,19 +54,23 @@ class Weight
 
 // count two sums of dates of 'left' and 'right' of 'left' and 'right' sub-arrays.
 
-        $countFunctionX = function($value){return (new DateTime($value['js-date']))->getTimestamp();};
+//        $countFunctionX = function($value){return (new DateTime($value['js-date']))->getTimestamp();};
+        function countZZ($value){
+            $dt = new MyDateTime($value['js-date']);
+            return $dt->getTimestamp();
+        }
 
-        $sumFirstX = array_sum( array_map( $countFunctionX, $weightFirst) );
-        $sumSecondX = array_sum( array_map( $countFunctionX, $weightSecond) );
+        $sumFirstX = array_sum( array_map( 'countZZ', $weightFirst) );
+        $sumSecondX = array_sum( array_map( 'countZZ', $weightSecond) );
 
 // count arithmetical means of these sums. It is two X ordinate values.
         $xFirstTimestamp = $sumFirstX / ceil($total/2);
         $xSecondTimestamp = $sumSecondX / ceil($total/2);
 
 // format dates to usual format
-        $xdFirst = new DateTime();
+        $xdFirst = new MyDateTime();
         $xdFirst->setTimestamp($xFirstTimestamp);
-        $xdSecond = new DateTime();
+        $xdSecond = new MyDateTime();
         $xdSecond->setTimestamp($xSecondTimestamp);
 
 // At this point we got two points. Unfortunately, these are in the middle. We need points at the edge of screen.
@@ -53,12 +78,15 @@ class Weight
 
 // count coefficient:
 
+
         $ratio = ($yFirst - $ySecond) / ($xFirstTimestamp - $xSecondTimestamp);
 // -1 month is because we used javascript to operate, there is 1 month difference
 // TODO: check edge values of month for bugs.
 
-        $xTodayTimestamp = (new DateTime('-1 month'))->getTimestamp();
-        $xVeryFirstTimestamp = (new DateTime('-1month -'.$daysAgo.' days'))->getTimestamp();
+        $dt = (new MyDateTime('-1 month'));
+        $xTodayTimestamp = $dt->getTimestamp();
+        $dt = (new MyDateTime('-1month -'.$daysAgo.' days'));
+        $xVeryFirstTimestamp = $dt->getTimestamp();
 
 // according to previous ratio calculation, get equations for today X and Y, and for -$daysAgo point X and Y
 #        $ratio = ($yFirst - $yToday) / ($xFirstTimestamp - $xTodayTimestamp);
@@ -67,8 +95,15 @@ class Weight
 #        $ratio = ($yVeryFirst - $yFirst) / ($xVeryFirstTimestamp - $xFirstTimestamp);
         $yVeryFirst = $ratio *  ($xVeryFirstTimestamp - $xFirstTimestamp) + $yFirst;
 
-        $xVeryFirstDate = (new DateTime())->setTimestamp($xVeryFirstTimestamp);
-        $xTodayDate = (new DateTime())->setTimestamp($xTodayTimestamp);
+        $dt = new MyDateTime();
+        $xVeryFirstDate = $dt->setTimestamp($xVeryFirstTimestamp);
+        $dt = new MyDateTime();
+        $xTodayDate = $dt->setTimestamp($xTodayTimestamp);
+
+//        var_dump(array(
+//            array($xVeryFirstDate->format('Y, m,d, H'), round($yVeryFirst, 1)),
+//            array($xTodayDate->format('Y, m, d, H'), round($yToday, 1))
+//        ));
 
         return (array(
             array($xVeryFirstDate->format('Y, m,d, H'), round($yVeryFirst, 1)),
