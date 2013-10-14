@@ -4,7 +4,7 @@
         <?php if (isset($linkText)) { ?>
         <div class="bg-bt"><a class="view-t-schedule" href="<?php echo $link ?>"><?php echo $linkText ?></a></div>
         <?php } ?>
-        <span class="copy">&copy; Быстрый график 2012</span>
+        <span class="copy">&copy; Быстрый график <?php echo date('Y') ?></span>
     </div>
 </div>
 <!--    footer end-->
