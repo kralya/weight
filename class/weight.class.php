@@ -28,10 +28,8 @@ class Weight
             return;
         }
 
-        $even = $total % 2 === 0;
-
 // split array to two halves: left (up to middle, including it if there is even amount) and right, from middle to end element
-        if($even){
+        if($total % 2 === 0){
             $weightFirst = array_slice($weight, 0, $total/2);
             $weightSecond = array_slice($weight, $total/2, $total/2);
         }else{
@@ -77,8 +75,6 @@ class Weight
 // First end of interval is Today-$daysAgo, second is today.
 
 // count coefficient:
-
-
         $ratio = ($yFirst - $ySecond) / ($xFirstTimestamp - $xSecondTimestamp);
 // -1 month is because we used javascript to operate, there is 1 month difference
 // TODO: check edge values of month for bugs.
@@ -109,7 +105,6 @@ class Weight
             array($xVeryFirstDate->format('Y, m,d, H'), round($yVeryFirst, 1)),
             array($xTodayDate->format('Y, m, d, H'), round($yToday, 1))
         ));
-
     }
 
     public static function get($date)
