@@ -4,12 +4,6 @@ class Weight
 {
     public static function getTrendFor($weight)
     {
-// test code: make $total odd
-//        foreach($weight as $key=>$value){
-//            unset($weight[$key]);
-//            break;
-//        }
-
         $total = count($weight);
 
 // if amount of points < 2, return;
@@ -28,16 +22,36 @@ class Weight
             $weightSecond = array_slice($weight, floor($total/2), ceil($total/2));
         }
 
+// count two sums: sum of 'left' and sum of 'right' sub-arrays.
+        $countFunctionY = function($value){return $value['weight'];};
+        $sumFirstY = array_sum( array_map( $countFunctionY, $weightFirst) );
+        $sumSecondY = array_sum( array_map( $countFunctionY, $weightSecond) );
 
+// count arithmetical means of these sums. It is two Y ordinate values.
+        $yFirst = $sumFirstY / ceil($total/2);
+        $ySecond = $sumSecondY / ceil($total/2);
 
-        // count two sums: sum of 'left' and sum of 'right' sub-arrays.
-        // count arithmetical means of these sums. It is two Y ordinate values.
-        // count two sums of dates of 'left' and 'right' of 'left' and 'right' sub-arrays.
-        // count arithmetical means of these sums. It is two X ordinate values.
-        // return two points, X1Y1 and X2Y2
-        // then recalculate these points to include integer dates
+// count two sums of dates of 'left' and 'right' of 'left' and 'right' sub-arrays.
 
-        return $weight;
+        $countFunctionX = function($value){return (new DateTime($value['js-date']))->getTimestamp();};
+
+        $sumFirstX = array_sum( array_map( $countFunctionX, $weightFirst) );
+        $sumSecondX = array_sum( array_map( $countFunctionX, $weightSecond) );
+
+// count arithmetical means of these sums. It is two X ordinate values.
+        $xFirst = $sumFirstX / ceil($total/2);
+        $xSecond = $sumSecondX / ceil($total/2);
+
+// format dates to usual format
+        $xdFirst = new DateTime();
+        $xdFirst->setTimestamp($xFirst);
+        $xdSecond = new DateTime();
+        $xdSecond->setTimestamp($xSecond);
+
+        return array(
+            array($xdFirst->format('Y, m,d, H'), $yFirst),
+            array($xdSecond->format('Y, m, d, H'), $ySecond)
+        );
     }
 
     public static function get($date)
