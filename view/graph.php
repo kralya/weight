@@ -4,13 +4,15 @@
     </div>
 
 <?php } else { ?>
-<!--    Масштаб:-->
-<!--    <select>-->
-<!--        <option>2 недели</option>-->
-<!--        <option>Месяц</option>-->
-<!--        <option>3 месяца</option>-->
-<!--        <option>6 месяцев</option>-->
-<!--        <option>Год</option>-->
-<!--    </select>-->
 <div id="chartdiv" style="width:100%; height:290px;"></div>
 <?php } ?>
+
+<fieldset class="trend">
+    <legend>Trend line:</legend>
+    <ul class="trend">
+        <li>Last year<input type="checkbox"/></li>
+        <li>Last month<input type="checkbox"/></li>
+        <li><span>Last week</span><input type="checkbox"/></li>
+    </ul>
+    <br/>
+</fieldset>

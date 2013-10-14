@@ -327,3 +327,12 @@ ul, ol {
 .header .left{
     float: left;
 }
+
+fieldset.trend{
+    border: 1px dotted gray;
+    width: 150px;
+}
+
+.trend li{
+    margin-left: 10px;
+}
