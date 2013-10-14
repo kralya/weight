@@ -8,8 +8,11 @@
     <?php foreach ($weights as $date => $weight) { ?>
         <?php if (!empty($weight['weight'])) { ?>
             {
-                year:new Date(<?php echo str_replace('-', ', ', $weight['js-date']) ?>),
-                value: <?php echo $weight['weight'] ?>
+                'year': new Date(<?php echo str_replace('-', ', ', $weight['js-date']) ?>),
+                'value': '<?php echo $weight['weight'] ?>',
+<?php if(isset($weight['color'])){ ?>
+                'color': "<?php echo $weight['color'] ?>"
+<?php } ?>
             },
             <?php } ?>
         <?php } ?>
@@ -38,7 +41,6 @@
         categoryAxis.gridAlpha = 0;
         categoryAxis.dateFormats = [{period:'fff',format:'JJ:NN:SS'},{period:'ss',format:'JJ:NN:SS'},{period:'mm',format:'JJ:NN'},{period:'hh',format:'JJ:NN'},{period:'DD',format:'MMM DD EEEE'},{period:'WW',format:'MMM DD EEE'},{period:'MM',format:'MMM'},{period:'YYYY',format:'YYYY'}];
         categoryAxis.boldPeriodBeginning = true;
-        categoryAxis.parseDates = true;
 
         // value
         var valueAxis = new AmCharts.ValueAxis();
@@ -50,15 +52,32 @@
 
         // GRAPH
         graph = new AmCharts.AmGraph();
-        graph.type = "smoothedLine"; // this line makes the graph smoothed line.
+//        graph.type = "smoothedLine"; // this line makes the graph smoothed line.
+        graph.type = "line"; // this line makes the graph smoothed line.
         graph.lineColor = "#d1655d";
-        graph.negativeLineColor = "#637bb6"; // this line makes the graph to change color when it drops below 0
         graph.bullet = "round";
-        graph.bulletSize = 5;
-        graph.lineThickness = 2;
+        graph.bulletSize = 10;
+        graph.lineThickness = 3;
         graph.valueField = "value";
+
+        // not working!
+        graph.lineColorField = "color";
+        graph.fillColorsField = "color";
+//        graph.descriptionField = 'lineColor';
+
+        // working
+//        graph.fillColors = 'green';
+        graph.fillAlphas = "0.4";
         chart.addGraph(graph);
 
+//        trendLine = new AmCharts.TrendLine();
+//        var trendLine = new AmCharts.TrendLine();
+//        trendLine.initialDate = new Date(2013, 09, 02); // 12 is hour - to start trend line in the middle of the day
+//        trendLine.finalDate = new Date(2013, 09, 06);
+//        trendLine.initialValue = 88;
+//        trendLine.finalValue = 86;
+//        trendLine.lineColor = "green";
+//        chart.addTrendLine(trendLine);
 
         // CURSOR
         var chartCursor = new AmCharts.ChartCursor();
