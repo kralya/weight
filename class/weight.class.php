@@ -2,6 +2,12 @@
 
 class Weight
 {
+    public static function getTrendFor($daysAgo)
+    {
+        $points = Weight::getForDaysAgo($daysAgo);
+
+    }
+
     public static function get($date)
     {
         $email = Auth::getEmail();

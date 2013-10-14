@@ -3,7 +3,12 @@ RewriteBase /
 
 RewriteRule ^welcome$ welcome.php [L]
 RewriteRule ^logout logout.php [L]
-RewriteRule ^graph graph.php [L]
+
 RewriteRule ^index.php$ av_index.php [L]
 RewriteRule ^$ av_index.php [L]
 
+RewriteRule ^graph-trend-week$ graph.php?trend=week [L]
+RewriteRule ^graph-trend-month$ graph.php?trend=month [L]
+RewriteRule ^graph-trend-year$ graph.php?trend=year [L]
+
+RewriteRule ^graph graph.php [L]

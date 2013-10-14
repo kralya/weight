@@ -8,11 +8,12 @@
 <?php } ?>
 
 <fieldset class="trend">
-    <legend>Trend line:</legend>
+    <legend>Тренд:</legend>
     <ul class="trend">
-        <li>Last year<input type="checkbox"/></li>
-        <li>Last month<input type="checkbox"/></li>
-        <li><span>Last week</span><input type="checkbox"/></li>
+        <li>Последний год <input type="checkbox" id="checkbox-year" /></li>
+        <li>Последний месяц <input type="checkbox" id="checkbox-month" /></li>
+        <li>Последняя неделя <input type="checkbox" id="checkbox-week" /></li>
+        <li>Очистить <input type="checkbox" id="checkbox-remove" /></li>
     </ul>
     <br/>
 </fieldset>
