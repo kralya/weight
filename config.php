@@ -18,3 +18,5 @@ define('DAYS_AGO_INDEX', 5);
 function __autoload($class_name) {
 	include './class/'.strtolower($class_name) . '.class.php';
 }
+
+date_default_timezone_set('Europe/Moscow');
