@@ -92,6 +92,8 @@
         trendLine.finalValue = <?php echo $trendPoints[1][1]?>;
 
         trendLine.lineColor = "green";
+        trendLine.lineThickness = '4px';
+
         chart.addTrendLine(trendLine);
 
         <?php } ?>
