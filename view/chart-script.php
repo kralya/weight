@@ -55,9 +55,14 @@
 
         // value
         var valueAxis = new AmCharts.ValueAxis();
-        valueAxis.axisAlpha = 0;
         valueAxis.inside = true;
+        valueAxis.position = 'left';
         chart.addValueAxis(valueAxis);
+
+        var yAxis = new AmCharts.ValueAxis();
+        yAxis.position = 'right';
+        chart.addValueAxis(yAxis);
+
 
         AmCharts.dayNames = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четвег', 'Пятница', 'Суббота'];
         AmCharts.shortDayNames = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
@@ -71,16 +76,21 @@
         graph.bulletSize = <?php echo $bulletSize ?>;
         graph.lineThickness = 3;
         graph.valueField = "value";
-
-        // not working!
-        graph.lineColorField = "color";
-        graph.fillColorsField = "color";
-//        graph.descriptionField = 'lineColor';
-
-        // working
-//        graph.fillColors = 'green';
         graph.fillAlphas = "0.4";
+        graph.valueAxis = yAxis;
         chart.addGraph(graph);
+
+        // HACK for second value axis to be displayed (it has to be attached to a graph). So second graph exactly copies first..
+        graph2 = new AmCharts.AmGraph();
+        graph2.type = "smoothedLine"; // this line makes the graph smoothed line.
+        graph2.lineColor = "#b0655d";
+        graph2.bullet = "round";
+        graph2.bulletSize = <?php echo $bulletSize ?>;
+        graph2.lineThickness = 3;
+        graph2.valueField = "value";
+        graph2.fillAlphas = "0.4";
+        graph2.valueAxis = valueAxis;
+        chart.addGraph(graph2);
 
     <?php if (is_array($trendPoints)) { ?>
 
