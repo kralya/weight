@@ -32,20 +32,19 @@
  **/
 
 /**
- * DONE 1. Кнопочка печати
- * 2. Строить график по данному дню недели (за год)
- * 3. Строить график по данному месяцу
- * 4. Строить график по данному номеру недели
- * DONE 5. Сменить дни недели на графике на сокращенные.
- * DONE 6. Уменьшить размер отметок на графике ( или сделать его зависимым от количества точек на графике.. чем больше точек,тем меньше размер)
- * 7. Добавить справа ось ординат.
- * DONE 8. Цвет поспокойней графика.
- * 9. Увеличить вертикальный размер графика.
+ * DONE 1. Print button.
+ * 2. Build graph by week day for year.
+ * 3. Build graph for given month
+ * 4. Build graph for given week
+ * DONE 5. Shorten week day names for shortened
+ * DONE 6. Decrease size of bullets on graph (or make it dependent on amount points on graph)
+ * DONE 7. Add one more value axis.
+ * DONE 8. Make graph color calmer..
+ * 9. Increase graph size vertically.
  *
- * 10. Запоминать пользователя, куки
+ * 10. Remember user, fix cookies.
  *
- * 11. Писать дни недели при вводе данных
- * 12. Ввод веса на 7 дней. Выходные красным цветом.
- * 13. При вводе мелким шрифтом отображать показатель прошлой недели.
- */
+ * 11. Add week days on data input.
+ * 12. Make data input for 7 days. Weekends make red.
+ * 13. For data input display weight of the same weekday of last week in small size letters */
 ?>
