@@ -46,7 +46,7 @@
             {period:'ss', format:'JJ:NN:SS'},
             {period:'mm', format:'JJ:NN'},
             {period:'hh', format:'JJ:NN'},
-            {period:'DD', format:'MMM DD EEEE'},
+            {period:'DD', format:'MMM DD EEE'},
             {period:'WW', format:'MMM DD EEE'},
             {period:'MM', format:'MMM'},
             {period:'YYYY', format:'YYYY'}
@@ -60,6 +60,7 @@
         chart.addValueAxis(valueAxis);
 
         AmCharts.dayNames = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четвег', 'Пятница', 'Суббота'];
+        AmCharts.shortDayNames = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
 
         // GRAPH
         graph = new AmCharts.AmGraph();
