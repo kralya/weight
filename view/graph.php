@@ -21,7 +21,7 @@
                 <li>Последняя неделя <input type="checkbox"
                                             id="checkbox-week" <?php if ($period == 'week') echo "checked" ?>
                                             onclick="window.location = '/graph-trend-week';"/></li>
-                <li>Очистить <input type="checkbox" id="checkbox-remove" <?php if ($period == '') echo "checked" ?>
+                <li>Очистить <input type="checkbox" id="checkbox-remove" 
                                     onclick="window.location = '/graph';"/></li>
             </ul>
         </fieldset>
