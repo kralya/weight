@@ -333,6 +333,20 @@ fieldset.trend{
     width: 180px;
 }
 
+.bottom-menu{
+    display: block;
+    overflow: hidden;
+}
+
+.sub-left{
+    float: left;
+    width: 400px;
+}
+
+#print{
+    float:right;
+}
+
 .trend li{
     margin-left: 10px;
 }
