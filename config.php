@@ -1,10 +1,7 @@
 <?php
 session_start();
 
-$username = 'alex';
-$password = '';
-$db = 'weight';
-$server = 'localhost';
+include_once('db-config.php');
 
 mysql_connect($server, $username, $password) or die('failed to connect');
 mysql_select_db($db);
