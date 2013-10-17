@@ -46,8 +46,8 @@
             {period:'ss', format:'JJ:NN:SS'},
             {period:'mm', format:'JJ:NN'},
             {period:'hh', format:'JJ:NN'},
-            {period:'DD', format:'MMM DD EEE'},
-            {period:'WW', format:'MMM DD EEE'},
+            {period:'DD', format:' EEE, DD MMM'},
+            {period:'WW', format:'EEE, DD MMM'},
             {period:'MM', format:'MMM'},
             {period:'YYYY', format:'YYYY'}
         ];
