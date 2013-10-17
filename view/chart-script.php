@@ -68,7 +68,7 @@
 //        graph.type = "line"; // this line makes the graph smoothed line.
         graph.lineColor = "#b0655d";
         graph.bullet = "round";
-        graph.bulletSize = 10;
+        graph.bulletSize = <?php echo $bulletSize ?>;
         graph.lineThickness = 3;
         graph.valueField = "value";
 

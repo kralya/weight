@@ -25,6 +25,13 @@ foreach ($weights as $key => $weight) {
     }
 }
 
-Core::loadTemplate('av_header', array('weights' => $weights, 'useChartScript' => true, 'title' => 'График веса', 'trendPoints' => $trendPoints));
+$bulletSize = 7;
+if(count($weight) > 100){
+    $bulletSize = 3;
+}elseif(count($weight) > 10){
+    $bulletSize = 5;
+}
+
+Core::loadTemplate('av_header', array('weights' => $weights, 'useChartScript' => true, 'title' => 'График веса', 'trendPoints' => $trendPoints, 'bulletSize' => $bulletSize));
 Core::loadTemplate('graph', array('displayWeight' => ($counter > 1), 'period' => $period));
 Core::loadTemplate('av_footer', array('link' => INDEX_PAGE, 'linkText' => 'Ввести вес:'));
