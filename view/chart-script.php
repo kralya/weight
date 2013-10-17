@@ -64,9 +64,8 @@
 
         // GRAPH
         graph = new AmCharts.AmGraph();
-//        graph.type = "smoothedLine"; // this line makes the graph smoothed line.
-        graph.type = "line"; // this line makes the graph smoothed line.
-//        graph.lineColor = "#d1655d";
+        graph.type = "smoothedLine"; // this line makes the graph smoothed line.
+//        graph.type = "line"; // this line makes the graph smoothed line.
         graph.lineColor = "#b0655d";
         graph.bullet = "round";
         graph.bulletSize = 10;
