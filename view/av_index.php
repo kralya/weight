@@ -26,8 +26,9 @@
                 </div>
             </div>
             <?php $parts = explode(',', $value['display-date']) ?>
+            <?php if(count($parts) == 1){$parts[2] = '';}?>
             <div id="date-<?php echo $key ?>" class="dates">
-                <span><?php echo $parts[0] ?>,</span><span class="date"><?php echo $parts[1] ?></span>
+                <span><?php echo $parts[0] ?>,</span><span class="date"><?php echo $parts[1] . $parts[2] ?></span>
             </div>
 
         </li>

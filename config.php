@@ -10,7 +10,7 @@ define('WELCOME_PAGE', '/welcome');
 define('INDEX_PAGE', '/');
 define('GRAPH_PAGE', '/graph');
 define('LOGOUT_PAGE', '/logout');
-define('DAYS_AGO_INDEX', 5);
+define('DAYS_AGO_INDEX', 7);
 
 function __autoload($class_name) {
 	include './class/'.strtolower($class_name) . '.class.php';

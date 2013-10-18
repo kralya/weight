@@ -161,20 +161,21 @@ class Weight
         return $results;
     }
 
+    //TODO: refactor it. Now output is formatted both here in model and in view.
+
     // months in JS are zero-based, 0 means January.
     // in PHP 1 means January. Decrease month number by one.
     protected static function prepareJavascriptAndDisplayDates($input)
     {
+        $weekdays = array(1 => 'Пн', 2 => 'Вт', 3 => 'Ср', 4 => 'Чт', 5 => 'Пт', 6 => 'Сб', 7 => 'Вс');
+        $texts = array('Сегодня, ', 'Вчера, ', 'Позавчера, ', '', '', '', '');
+        $total = count($input);
+        for($i=0; $i<$total; $i++){
+            $times = strtotime('-' . $i . ' day');
+            $currentDates[date('Y-m-d', $times)] = sprintf('%s%s, %s', $texts[$i], $weekdays[date(('N'), $times)], date(('d M'), $times));
+        }
+
         $results = array();
-
-        $currentDates = array(
-            date('Y-m-d') => 'Сегодня, '.date('d M'),
-            date('Y-m-d', strtotime('-1 day')) => 'Вчера, '.date(('d M'), strtotime('-1 day')),
-            date('Y-m-d', strtotime('-2 day')) => 'Позавчера, '.date(('d M'), strtotime('-2 day')),
-            date('Y-m-d', strtotime('-3 day')) => '3 дня назад, '.date(('d M'), strtotime('-3 day')),
-            date('Y-m-d', strtotime('-4 day')) => '4 дня назад, '.date(('d M'), strtotime('-4 day')),
-        );
-
         foreach ($input as $date => $value) {
             $parts = explode('-', $date);
             $month = ($parts[1] - 1 < 10) ? '0' . ($parts[1] - 1) : ($parts[1] - 1);
