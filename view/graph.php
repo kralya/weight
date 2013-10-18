@@ -4,7 +4,7 @@
     </div>
 
 <?php } else { ?>
-<div id="chartdiv" style="width:100%; height:290px;"></div>
+<div id="chartdiv" style="width:100%; height:340px;"></div>
 <?php } ?>
 
 <div class="bottom-menu">

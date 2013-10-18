@@ -39,8 +39,8 @@
  * DONE 5. Shorten week day names for shortened
  * DONE 6. Decrease size of bullets on graph (or make it dependent on amount points on graph)
  * DONE 7. Add one more value axis.
- * DONE 8. Make graph color calmer..
- * 9. Increase graph size vertically.
+ * DONE 8. Make graph color calmer.
+ * DONE 9. Increase graph size vertically.
  *
  * 10. Remember user, fix cookies.
  *
