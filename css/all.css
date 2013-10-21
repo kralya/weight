@@ -105,7 +105,6 @@ ul, ol {
 }
 
 .right-rail .quit a:hover {
-    /*background-color:#e0e0e0;*/
     background-color: #b2c8da;
 }
 
@@ -141,6 +140,10 @@ ul, ol {
     -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 1, 0.15);
     -moz-box-shadow: 1px 1px 3px rgba(0, 0, 1, 0.15);
     box-shadow: 1px 1px 3px rgba(0, 0, 1, 0.15);
+}
+
+.layout div.weekend {
+    background: -moz-linear-gradient(top, #ffb6c1, #afbfcf);
 }
 
 .layout .wg .h {
@@ -208,6 +211,12 @@ ul, ol {
 .layout .calculation span.weekday {
     font-weight: bold;
     color: #000;
+    font-size: 14px;
+}
+
+.layout .calculation span.weekend {
+    font-weight: bold;
+    color: red;
     font-size: 14px;
 }
 

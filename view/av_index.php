@@ -7,7 +7,7 @@
 
 
         <li>
-            <div class="wg">
+            <div class="wg <?php echo $value['display-date']['weekend'] ? 'weekend' : '' ?>">
                 <div class="h box" id="box-<?php echo $key ?>">
 
                     <div id="text-<?php echo $key ?>">
@@ -25,10 +25,11 @@
 
                 </div>
             </div>
-
             <div id="date-<?php echo $key ?>" class="dates">
                 <span><?php echo $value['display-date']['text'] ?></span>
-                <span class="weekday"><?php echo $value['display-date']['weekday'] ?>,</span>
+                <span class="weekday <?php echo $value['display-date']['weekend'] ? 'weekend' : '' ?> ">
+                    <?php echo $value['display-date']['weekday'] ?>,
+                </span>
                 <span><?php echo $value['display-date']['date'] ?></span>
             </div>
 

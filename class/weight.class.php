@@ -173,6 +173,7 @@ class Weight
         for ($i = 0; $i < $total; $i++) {
             $times                               = strtotime('-' . $i . ' day');
             $currentDates[date('Y-m-d', $times)] = array('weekday' => $weekdays[date(('N'), $times)],
+                                                         'weekend' => in_array(date(('N'), $times), array(6, 7)),
                                                          'text'    => $texts[$i],
                                                          'date'    => date(('d M'), $times));
         }
