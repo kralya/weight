@@ -25,10 +25,11 @@
 
                 </div>
             </div>
-            <?php $parts = explode(',', $value['display-date']) ?>
-            <?php if(count($parts) == 1){$parts[2] = '';}?>
+
             <div id="date-<?php echo $key ?>" class="dates">
-                <span><?php echo $parts[0] ?>,</span><span class="date"><?php echo $parts[1] . $parts[2] ?></span>
+                <span><?php echo $value['display-date']['text'] ?></span>
+                <span class="weekday"><?php echo $value['display-date']['weekday'] ?>,</span>
+                <span><?php echo $value['display-date']['date'] ?></span>
             </div>
 
         </li>

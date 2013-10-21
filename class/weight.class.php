@@ -172,7 +172,9 @@ class Weight
         $total    = count($input);
         for ($i = 0; $i < $total; $i++) {
             $times                               = strtotime('-' . $i . ' day');
-            $currentDates[date('Y-m-d', $times)] = sprintf('%s%s, %s', $texts[$i], $weekdays[date(('N'), $times)], date(('d M'), $times));
+            $currentDates[date('Y-m-d', $times)] = array('weekday' => $weekdays[date(('N'), $times)],
+                                                         'text'    => $texts[$i],
+                                                         'date'    => date(('d M'), $times));
         }
 
         $results = array();
@@ -186,10 +188,9 @@ class Weight
 
             if (isset($currentDates[$parts[0] . '-' . $parts[1] . '-' . $parts[2]])) {
                 $results[$date]['display-date'] = $currentDates[$parts[0] . '-' . $parts[1] . '-' . $parts[2]];
-                $results[$date]['display-date'] = self::replaceMonths($results[$date]['display-date']);
+                $results[$date]['display-date']['date'] = self::replaceMonths($results[$date]['display-date']['date']);
             }
         }
-
         return $results;
     }
 
