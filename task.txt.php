@@ -42,10 +42,13 @@
  * DONE 8. Make graph color calmer.
  * DONE 9. Increase graph size vertically.
  *
- * 10. Remember user, fix cookies. // ? seems it works already. Just do not logout
+ * DONE? 10. Remember user, fix cookies. // ? seems it works already. Just do not logout
  *
  * DONE 11. Add week days on data input.
- * 12. Make data input for 7 days. Weekends make red.
+ * DONE 12. Make data input for 7 days.
+ * 14. Weekends make red.
  * 13. For data input display weight of the same weekday of last week in small size letters
+ *
+ * 15. Create blog. Add link to this blog to site.
  **/
 ?>
