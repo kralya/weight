@@ -168,10 +168,10 @@ class Weight
     protected static function prepareJavascriptAndDisplayDates($input)
     {
         $weekdays = array(1 => 'Пн', 2 => 'Вт', 3 => 'Ср', 4 => 'Чт', 5 => 'Пт', 6 => 'Сб', 7 => 'Вс');
-        $texts = array('Сегодня, ', 'Вчера, ', 'Позавчера, ', '', '', '', '');
-        $total = count($input);
-        for($i=0; $i<$total; $i++){
-            $times = strtotime('-' . $i . ' day');
+        $texts    = array('Сегодня, ', 'Вчера, ', 'Позавчера, ', '', '', '', '');
+        $total    = count($input);
+        for ($i = 0; $i < $total; $i++) {
+            $times                               = strtotime('-' . $i . ' day');
             $currentDates[date('Y-m-d', $times)] = sprintf('%s%s, %s', $texts[$i], $weekdays[date(('N'), $times)], date(('d M'), $times));
         }
 
@@ -180,8 +180,8 @@ class Weight
             $parts = explode('-', $date);
             $month = ($parts[1] - 1 < 10) ? '0' . ($parts[1] - 1) : ($parts[1] - 1);
 
-            $results[$date]['weight'] = $value;
-            $results[$date]['js-date'] = $parts[0] . '-' . $month . '-' . $parts[2];
+            $results[$date]['weight']       = $value;
+            $results[$date]['js-date']      = $parts[0] . '-' . $month . '-' . $parts[2];
             $results[$date]['display-date'] = $parts[0] . '-' . $parts[1] . '-' . $parts[2];
 
             if (isset($currentDates[$parts[0] . '-' . $parts[1] . '-' . $parts[2]])) {
