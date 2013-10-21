@@ -47,7 +47,7 @@
  * DONE 11. Add week days on data input.
  * DONE 12. Make data input for 7 days.
  * DONE 14. Make weekends red.
- * 13. For data input display weight of the same weekday of last week in small size letters
+ * DONE 13. For data input display weight of the same weekday of last week in small size letters
  *
  * DONE 15. Create blog. Add link to this blog to site.
  **/
