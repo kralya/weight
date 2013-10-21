@@ -18,7 +18,7 @@ function sendWeight() {
 
         var rawBoxId = $('.forms:visible').attr('id');
         var realBoxId = rawBoxId.replace('-form', '').replace('box-', '');
-        $('#text-' + realBoxId).text(response);
+        $('#text-' + realBoxId).find('.common').text(response);
         hideBoxes();
     });
 }
