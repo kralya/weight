@@ -11,7 +11,7 @@
         <input type="text" name="email" class="tx" id="email" value="<?php echo $email ?>" autofocus>
         <input type="submit" name="submit" class="entr" value="Войти"/>
         <br/>
-        <input type="checkbox" class="chec" name="remember"/> <label>Запомнить</label>
+        <input type="checkbox" class="chec" name="remember" checked/> <label>Запомнить</label>
         <br/>
     </form>
 
