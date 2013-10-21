@@ -41,7 +41,8 @@ $('.input_submit').click(function () {
 $('.box').click(function () {
     hideBoxes();
 
-    var text = $(this).text();
+    var text = $(this).find('.common').text();
+
     var id = $(this).attr('id');
     $('#' + id + '-form').show();
 

@@ -134,6 +134,7 @@ class Weight
 
     public static function getForDaysAgo($daysAgo)
     {
+        $daysAgo +=7; // it is to have past week value
         $email = Auth::getEmail();
         $finish = new DateTime("-$daysAgo days");
 
@@ -171,11 +172,14 @@ class Weight
         $texts    = array('Сегодня, ', 'Вчера, ', 'Позавчера, ', '', '', '', '');
         $total    = count($input);
         for ($i = 0; $i < $total; $i++) {
-            $times                               = strtotime('-' . $i . ' day');
+            $times        = strtotime('-' . $i . ' day');
+            $weekAgoTimes = strtotime('-' . ($i + 7) . ' day');
+            $weekAgoValue = isset($input[date('Y-m-d', $weekAgoTimes)]) ? $input[date('Y-m-d', $weekAgoTimes)] : '';
             $currentDates[date('Y-m-d', $times)] = array('weekday' => $weekdays[date(('N'), $times)],
                                                          'weekend' => in_array(date(('N'), $times), array(6, 7)),
                                                          'text'    => $texts[$i],
-                                                         'date'    => date(('d M'), $times));
+                                                         'date'    => date(('d M'), $times),
+                                                         'valueWeekAgo' =>  $weekAgoValue);
         }
 
         $results = array();
@@ -192,6 +196,10 @@ class Weight
                 $results[$date]['display-date']['date'] = self::replaceMonths($results[$date]['display-date']['date']);
             }
         }
+
+        // delete first 7 results
+        $results = array_slice($results, 7);
+
         return $results;
     }
 
