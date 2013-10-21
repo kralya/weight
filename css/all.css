@@ -363,6 +363,7 @@ fieldset.trend{
     margin-left: 10px;
 }
 
-span.weekday{
-
+.copy a{
+    color: blue;
+    text-decoration:underline;
 }
