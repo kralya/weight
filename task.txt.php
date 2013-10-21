@@ -49,6 +49,6 @@
  * DONE 14. Make weekends red.
  * 13. For data input display weight of the same weekday of last week in small size letters
  *
- * 15. Create blog. Add link to this blog to site.
+ * DONE 15. Create blog. Add link to this blog to site.
  **/
 ?>
