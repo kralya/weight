@@ -12,7 +12,7 @@
                 <div class="h box" id="box-<?php echo $key ?>">
 
                     <div id="text-<?php echo $key ?>">
-                        <span style="font-size: 9px"><?php echo $value['display-date']['valueWeekAgo'] ?></span>
+                        <span style="font-size: 9px"><?php echo $value['display-date']['valueWeekAgo'] ?>&nbsp;</span>
                         <div class="common"><?php echo $value['weight'] ? $value['weight'] : '...' ?></div>
                     </div>
 
