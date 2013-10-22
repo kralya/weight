@@ -16,7 +16,6 @@ RewriteRule ^graph-trend-week$ trend.php?trend=week [L]
 RewriteRule ^graph-trend-month$ trend.php?trend=month [L]
 RewriteRule ^graph-trend-year$ trend.php?trend=year [L]
 
-#RewriteRule ^images/logos/(.*)$                         /assets/Images/Logos/$1 [QSA,L,NC]
 RewriteRule ^graph-for-weekday/(.*)$ graph.php?graph=weekday&term=$1 [L]
 RewriteRule ^graph-for-month/(.*)$ graph.php?graph=month&term=$1 [L]
 RewriteRule ^graph-for-week/(.*)$ graph.php?graph=week&term=$1 [L]
