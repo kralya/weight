@@ -15,13 +15,6 @@ if ($totalDays) {
     $trendPoints = null;
 }
 
-$counter = 0;
-foreach ($weights as $key => $weight) {
-    if (!empty($weights[$key]['weight'])) {
-        $counter++;
-    }
-}
-
 $bullet = new Bullet();
 
 Core::loadTemplate('av_header', array('weights'        => $weights,
@@ -29,7 +22,7 @@ Core::loadTemplate('av_header', array('weights'        => $weights,
                                       'title'          => 'График веса',
                                       'trendPoints'    => $trendPoints,
                                       'bulletSize'     => $bullet->getSizeFor($weights)));
-Core::loadTemplate('graph', array('displayWeight' => ($counter > 1),
+Core::loadTemplate('graph', array('displayWeight' => Weight::isDisplayed($weights),
                                   'period'        => $period));
 Core::loadTemplate('av_footer', array('link'     => INDEX_PAGE,
                                       'linkText' => 'Ввести вес:'));

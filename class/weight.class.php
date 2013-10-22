@@ -19,6 +19,17 @@ class MyDateTime extends DateTime
 
 class Weight
 {
+    public static function isDisplayed($weights)
+    {
+        $counter = 0;
+        foreach ($weights as $key => $weight) {
+            if (!empty($weights[$key]['weight'])) {
+                $counter++;
+            }
+        }
+        return $counter > 1;
+    }
+
     public static function getTrendFor($weight, $daysAgo)
     {
         $total = count($weight);
