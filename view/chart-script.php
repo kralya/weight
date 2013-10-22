@@ -89,7 +89,7 @@
         graph2.lineColor = "#b0655d";
         graph2.bullet = "round";
         graph2.showBalloon = false;
-        graph2.bulletSize = 1;
+        graph2.bulletSize = <?php echo $bulletSize ?>;
         graph2.lineThickness = 3;
         graph2.valueField = "value";
         graph2.fillAlphas = "0.4";

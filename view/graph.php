@@ -27,6 +27,47 @@
         </fieldset>
     </div>
 
+    <div>
+        <fieldset class="trend">
+            <legend> Строить график по:</legend>
+            <ul class="trend">
+                <li>Дню недели:
+                    <select style="width: 55px">
+                        <option></option>
+                        <option>Пн</option>
+                        <option>Вт</option>
+                        <option>Ср</option>
+                        <option>Чт</option>
+                        <option>Пт</option>
+                        <option>Сб</option>
+                        <option>Вс</option>
+                    </select>
+                </li>
+                <li>№ месяца:
+                    <select style="width: 55px">
+                        <option></option>
+                        <?php for($i=1;$i<13;$i++){ ?>
+                        <option><?php echo $i ?></option>
+                         <?php } ?>
+                    </select>
+                </li>
+
+                <li>№ недели:
+                    <select style="width: 55px">
+                        <option></option>
+                        <?php for($i=1;$i<53;$i++){ ?>
+                        <option><?php echo $i ?></option>
+                        <?php } ?>
+                    </select>
+                </li>
+
+                <li>Очистить <input type="checkbox"
+                                    onclick="window.location = '/graph';"/></li>
+            </ul>
+
+        </fieldset>
+    </div>
+
     <div id="print">
         <input  type="button" value="Печать" onclick="window.print();">
     </div>
