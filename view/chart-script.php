@@ -96,7 +96,7 @@
         graph2.valueAxis = valueAxis;
         chart.addGraph(graph2);
 
-    <?php if (is_array($trendPoints)) { ?>
+    <?php if (is_array($trendPoints) && !empty($trendPoints)) { ?>
 
         trendLine = new AmCharts.TrendLine();
         var trendLine = new AmCharts.TrendLine();
