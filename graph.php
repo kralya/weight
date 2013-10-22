@@ -11,13 +11,13 @@ foreach ($weights as $key => $weight) {
     }
 }
 
-$bul = new Bullet();
+$bullet = new Bullet();
 
 Core::loadTemplate('av_header', array('weights'        => $weights,
                                       'useChartScript' => true,
                                       'title'          => 'График веса',
                                       'trendPoints'    => array(),
-                                      'bulletSize'     => $bul->getSizeFor($weights)));
+                                      'bulletSize'     => $bullet->getSizeFor($weights)));
 Core::loadTemplate('graph', array('displayWeight' => ($counter > 1),
                                   'period'        => 0));
 Core::loadTemplate('av_footer', array('link'     => INDEX_PAGE,

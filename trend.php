@@ -20,18 +20,15 @@ foreach ($weights as $key => $weight) {
     if (!empty($weights[$key]['weight'])) {
         $counter++;
     }
-    if ($counter % 2 == 0) {
-        $weights[$key]['color'] = ($counter % 4 == 0) ? '#CC0000' : '#fd813c';
-    }
 }
 
-$bul = new Bullet();
+$bullet = new Bullet();
 
 Core::loadTemplate('av_header', array('weights'        => $weights,
                                       'useChartScript' => true,
                                       'title'          => 'График веса',
                                       'trendPoints'    => $trendPoints,
-                                      'bulletSize'     => $bul->getSizeFor($weights)));
+                                      'bulletSize'     => $bullet->getSizeFor($weights)));
 Core::loadTemplate('graph', array('displayWeight' => ($counter > 1),
                                   'period'        => $period));
 Core::loadTemplate('av_footer', array('link'     => INDEX_PAGE,
