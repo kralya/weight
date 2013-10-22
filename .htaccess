@@ -1,3 +1,8 @@
+#php_value error_reporting -1
+#php_flag display_startup_errors on
+#php_flag display_errors on
+#php_flag html_errors on
+
 RewriteEngine on
 RewriteBase /
 
@@ -7,8 +12,13 @@ RewriteRule ^logout logout.php [L]
 RewriteRule ^index.php$ av_index.php [L]
 RewriteRule ^$ av_index.php [L]
 
-RewriteRule ^graph-trend-week$ graph.php?trend=week [L]
-RewriteRule ^graph-trend-month$ graph.php?trend=month [L]
-RewriteRule ^graph-trend-year$ graph.php?trend=year [L]
+RewriteRule ^graph-trend-week$ trend.php?trend=week [L]
+RewriteRule ^graph-trend-month$ trend.php?trend=month [L]
+RewriteRule ^graph-trend-year$ trend.php?trend=year [L]
+
+#RewriteRule ^images/logos/(.*)$                         /assets/Images/Logos/$1 [QSA,L,NC]
+RewriteRule ^graph-for-weekday/(.*)$ graph.php?graph=weekday&term=$1 [L]
+RewriteRule ^graph-for-month/(.*)$ graph.php?graph=month&term=$1 [L]
+RewriteRule ^graph-for-week/(.*)$ graph.php?graph=week&term=$1 [L]
 
 RewriteRule ^graph graph.php [L]
