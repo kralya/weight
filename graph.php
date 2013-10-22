@@ -11,6 +11,6 @@ Core::loadTemplate('av_header', array('weights'        => $weights,
                                       'trendPoints'    => array(),
                                       'bulletSize'     => $bullet->getSizeFor($weights)));
 Core::loadTemplate('graph', array('displayWeight' => Weight::isDisplayed($weights),
-                                  'period'        => 0));
+                                  'period'        => ''));
 Core::loadTemplate('av_footer', array('link'     => INDEX_PAGE,
                                       'linkText' => '¬вести вес:'));
