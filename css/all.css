@@ -363,6 +363,10 @@ fieldset.trend{
     margin-left: 10px;
 }
 
+.trend li select{
+    width: 55px;
+}
+
 .copy a{
     color: blue;
     text-decoration:underline;

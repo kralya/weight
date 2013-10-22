@@ -32,31 +32,31 @@
             <legend> Строить график по:</legend>
             <ul class="trend">
                 <li>Дню недели:
-                    <select style="width: 55px">
+                    <select>
                         <option></option>
-                        <option>Пн</option>
-                        <option>Вт</option>
-                        <option>Ср</option>
-                        <option>Чт</option>
-                        <option>Пт</option>
-                        <option>Сб</option>
-                        <option>Вс</option>
+                        <option value="1">Пн</option>
+                        <option value="2">Вт</option>
+                        <option value="3">Ср</option>
+                        <option value="4">Чт</option>
+                        <option value="5">Пт</option>
+                        <option value="6">Сб</option>
+                        <option value="7">Вс</option>
                     </select>
                 </li>
                 <li>№ месяца:
-                    <select style="width: 55px">
+                    <select>
                         <option></option>
                         <?php for($i=1;$i<13;$i++){ ?>
-                        <option><?php echo $i ?></option>
+                        <option value="<?php echo $i ?>"><?php echo $i ?></option>
                          <?php } ?>
                     </select>
                 </li>
 
                 <li>№ недели:
-                    <select style="width: 55px">
+                    <select>
                         <option></option>
                         <?php for($i=1;$i<53;$i++){ ?>
-                        <option><?php echo $i ?></option>
+                        <option value="<?php echo $i ?>"><?php echo $i ?></option>
                         <?php } ?>
                     </select>
                 </li>
