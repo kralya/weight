@@ -32,7 +32,7 @@
             <legend> Строить график по:</legend>
             <ul class="trend">
                 <li>Дню недели:
-                    <select>
+                    <select onchange="if (this.selectedIndex) window.location = '/graph-for-weekday/' + this.options[this.selectedIndex].value;">
                         <option></option>
                         <option value="1">Пн</option>
                         <option value="2">Вт</option>
@@ -44,7 +44,7 @@
                     </select>
                 </li>
                 <li>№ месяца:
-                    <select>
+                    <select onchange="if (this.selectedIndex) window.location = '/graph-for-month/' + this.options[this.selectedIndex].value;">
                         <option></option>
                         <?php for($i=1;$i<13;$i++){ ?>
                         <option value="<?php echo $i ?>"><?php echo $i ?></option>
@@ -53,7 +53,7 @@
                 </li>
 
                 <li>№ недели:
-                    <select>
+                    <select onchange="if (this.selectedIndex) window.location = '/graph-for-week/' + this.options[this.selectedIndex].value;">
                         <option></option>
                         <?php for($i=1;$i<53;$i++){ ?>
                         <option value="<?php echo $i ?>"><?php echo $i ?></option>
