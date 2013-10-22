@@ -177,7 +177,7 @@ class Weight
             $weekAgoValue = isset($input[date('Y-m-d', $weekAgoTimes)]) ? $input[date('Y-m-d', $weekAgoTimes)] : '';
             $currentDates[date('Y-m-d', $times)] = array('weekday' => $weekdays[date(('N'), $times)],
                                                          'weekend' => in_array(date(('N'), $times), array(6, 7)),
-                                                         'text'    => $texts[$i],
+                                                         'text'    => array_key_exists($i, $texts) ? $texts[$i] : '',
                                                          'date'    => date(('d M'), $times),
                                                          'valueWeekAgo' =>  $weekAgoValue);
         }
