@@ -13,9 +13,9 @@
 
     <title><?php echo $title ?></title>
 
-    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="<?php echo ROOT ?>/css/all.css">
 
-    <script type="text/javascript" src="js/jquery.min.1.7.1.avjs"></script>
+    <script type="text/javascript" src="<?php echo ROOT ?>/js/jquery.min.1.7.1.avjs"></script>
 
     <?php if (isset($useChartScript) && $useChartScript) Core::loadTemplate('chart-script', array('weights' => $weights, 'trendPoints' => $trendPoints, 'bulletSize' => $bulletSize)) ?>
 
@@ -40,7 +40,7 @@
     <div class="header">
         <div class="left">
             <a href="<?php echo INDEX_PAGE ?>">
-                <img width="200px" src="img/logo.png"/>
+                <img width="200px" src="<?php echo ROOT ?>/img/logo.png"/>
             </a>
         </div>
         <?php if (!isset($notLogged)) { ?>

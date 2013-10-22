@@ -1,6 +1,6 @@
 <?php //var_dump($trendPoints); ?>
 
-<script src="js/amcharts.avjs" type="text/javascript"></script>
+<script src="<?php echo ROOT ?>/js/amcharts.avjs" type="text/javascript"></script>
 <script type="text/javascript">
     var chart;
     var graph;
