@@ -33,6 +33,6 @@ Core::loadTemplate('av_header', array('weights'        => $weights,
 Core::loadTemplate('graph', array('displayWeight' => Weight::isDisplayed($weights),
                                   'period'        => '',
                                   'term'          => $term,
-                                  'graph'         => $type));
+                                  'type'          => $type));
 Core::loadTemplate('av_footer', array('link'     => INDEX_PAGE,
                                       'linkText' => '¬вести вес:'));
