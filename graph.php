@@ -2,10 +2,17 @@
 include_once('config.php');
 Auth::redirectUnlogged();
 
-//var_dump($_GET['graph'], $_GET['term']);
+if ($_GET['graph'] == 'month' && (int)$_GET['term'] > 0 && (int)$_GET['term'] < 13) {
+    $from = date('Y').'-'.$_GET['term'].'-01';
+    $to = date('Y').'-'.$_GET['term'].'-30';
+    $weights = Weight::getForDaysAgo($from, $to);
+}
+
 if ($_GET['graph'] == 'weekday') {
     $weights = Weight::getForWeekday($_GET['term'], 10000);
-} else {
+}
+
+if(!isset($_GET['graph'])){
     $weights = Weight::getForDaysAgo(10000);
 }
 

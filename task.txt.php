@@ -34,7 +34,7 @@
 /**
  * DONE 1. Print button.
  * DONE 2. Build graph by week day for year.
- * 3. Build graph for given month
+ * DONE 3. Build graph for given month
  * 4. Build graph for given week
  * DONE 5. Shorten week day names for shortened
  * DONE 6. Decrease size of bullets on graph (or make it dependent on amount points on graph)
