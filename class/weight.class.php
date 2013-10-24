@@ -15,8 +15,8 @@ class Weight
         $weekday = self::$weekdays[(int)$weekday];
         $weights = self::getForDaysAgo($daysAgo);
 
-        foreach($weights as $key => $weight){
-            if($weight['display-date']['weekday'] !== $weekday){
+        foreach ($weights as $key => $weight) {
+            if ($weight['display-date']['weekday'] !== $weekday) {
                 unset($weights[$key]);
             }
         }
@@ -40,46 +40,48 @@ class Weight
         $total = count($weight);
 
 // if amount of points < 2, return;
-        if(2 > $total){
+        if (2 > $total) {
             return;
         }
 
 // split array to two halves: left (up to middle, including it if there is even amount) and right, from middle to end element
-        if($total % 2 === 0){
-            $weightFirst = array_slice($weight, 0, $total/2);
-            $weightSecond = array_slice($weight, $total/2, $total/2);
-        }else{
-            $weightFirst = array_slice($weight, 0, ceil($total/2));
-            $weightSecond = array_slice($weight, floor($total/2), ceil($total/2));
+        if ($total % 2 === 0) {
+            $weightFirst  = array_slice($weight, 0, $total / 2);
+            $weightSecond = array_slice($weight, $total / 2, $total / 2);
+        } else {
+            $weightFirst  = array_slice($weight, 0, ceil($total / 2));
+            $weightSecond = array_slice($weight, floor($total / 2), ceil($total / 2));
         }
 
 // count two sums: sum of 'left' and sum of 'right' sub-arrays.
-        function countZ($value){
+        function countZ($value)
+        {
             return $value['weight'];
         }
 
 //        $countFunctionY = function($value){return $value['weight'];};
-        $sumFirstY = array_sum( array_map( 'countZ', $weightFirst) );
-        $sumSecondY = array_sum( array_map( 'countZ', $weightSecond) );
+        $sumFirstY  = array_sum(array_map('countZ', $weightFirst));
+        $sumSecondY = array_sum(array_map('countZ', $weightSecond));
 
 // count arithmetical means of these sums. It is two Y ordinate values.
-        $yFirst = $sumFirstY / ceil($total/2);
-        $ySecond = $sumSecondY / ceil($total/2);
+        $yFirst  = $sumFirstY / ceil($total / 2);
+        $ySecond = $sumSecondY / ceil($total / 2);
 
 // count two sums of dates of 'left' and 'right' of 'left' and 'right' sub-arrays.
 
 //        $countFunctionX = function($value){return (new DateTime($value['js-date']))->getTimestamp();};
-        function countZZ($value){
+        function countZZ($value)
+        {
             $dt = new MyDateTime($value['js-date']);
             return $dt->getTimestamp();
         }
 
-        $sumFirstX = array_sum( array_map( 'countZZ', $weightFirst) );
-        $sumSecondX = array_sum( array_map( 'countZZ', $weightSecond) );
+        $sumFirstX  = array_sum(array_map('countZZ', $weightFirst));
+        $sumSecondX = array_sum(array_map('countZZ', $weightSecond));
 
 // count arithmetical means of these sums. It is two X ordinate values.
-        $xFirstTimestamp = $sumFirstX / ceil($total/2);
-        $xSecondTimestamp = $sumSecondX / ceil($total/2);
+        $xFirstTimestamp  = $sumFirstX / ceil($total / 2);
+        $xSecondTimestamp = $sumSecondX / ceil($total / 2);
 
 // format dates to usual format
         $xdFirst = new MyDateTime();
@@ -95,9 +97,9 @@ class Weight
 // -1 month is because we used javascript to operate, there is 1 month difference
 // TODO: check edge values of month for bugs.
 
-        $dt = (new MyDateTime('-1 month'));
-        $xTodayTimestamp = $dt->getTimestamp();
-        $dt = (new MyDateTime('-1month -'.$daysAgo.' days'));
+        $dt                  = (new MyDateTime('-1 month'));
+        $xTodayTimestamp     = $dt->getTimestamp();
+        $dt                  = (new MyDateTime('-1month -' . $daysAgo . ' days'));
         $xVeryFirstTimestamp = $dt->getTimestamp();
 
 // according to previous ratio calculation, get equations for today X and Y, and for -$daysAgo point X and Y
@@ -105,12 +107,12 @@ class Weight
 #        $ratio * ($xFirstTimestamp - $xTodayTimestamp) = $yFirst - $yToday;
         $yToday = $yFirst - $ratio * ($xFirstTimestamp - $xTodayTimestamp);
 #        $ratio = ($yVeryFirst - $yFirst) / ($xVeryFirstTimestamp - $xFirstTimestamp);
-        $yVeryFirst = $ratio *  ($xVeryFirstTimestamp - $xFirstTimestamp) + $yFirst;
+        $yVeryFirst = $ratio * ($xVeryFirstTimestamp - $xFirstTimestamp) + $yFirst;
 
-        $dt = new MyDateTime();
+        $dt             = new MyDateTime();
         $xVeryFirstDate = $dt->setTimestamp($xVeryFirstTimestamp);
-        $dt = new MyDateTime();
-        $xTodayDate = $dt->setTimestamp($xTodayTimestamp);
+        $dt             = new MyDateTime();
+        $xTodayDate     = $dt->setTimestamp($xTodayTimestamp);
 
         return (array(
             array($xVeryFirstDate->format('Y, m,d, H'), round($yVeryFirst, 1)),
@@ -122,7 +124,7 @@ class Weight
     {
         $email = Auth::getEmail();
         $query = 'SELECT weight FROM weight w, user u WHERE u.id = w.id_user AND email="%s" AND w.created_at="%s"';
-        $res = mysql_query(sprintf($query, $email, $date));
+        $res   = mysql_query(sprintf($query, $email, $date));
         if (0 == mysql_num_rows($res)) {
             return 0;
         }
@@ -134,8 +136,8 @@ class Weight
     public static function getPositiveWeightForDaysAgo($daysAgo)
     {
         $weights = self::getForDaysAgo($daysAgo);
-        foreach($weights as $key => $weight){
-            if($weight['weight'] == ''){
+        foreach ($weights as $key => $weight) {
+            if ($weight['weight'] == '') {
                 unset($weights[$key]);
             }
         }
@@ -172,7 +174,7 @@ class Weight
     {
         $results = array();
         for ($i = 1; $i <= $limit; $i++) {
-            $date = new DateTime(sprintf(' -%s days', ($limit - $i)));
+            $date                            = new DateTime(sprintf(' -%s days', ($limit - $i)));
             $results[$date->format('Y-m-d')] = isset($weights[$date->format('Y-m-d')]) ? $weights[$date->format('Y-m-d')] : '';
         }
 
@@ -189,14 +191,14 @@ class Weight
         $texts    = self::$dayTexts;
         $total    = count($input);
         for ($i = 0; $i < $total; $i++) {
-            $times        = strtotime('-' . $i . ' day');
-            $weekAgoTimes = strtotime('-' . ($i + 7) . ' day');
-            $weekAgoValue = isset($input[date('Y-m-d', $weekAgoTimes)]) ? $input[date('Y-m-d', $weekAgoTimes)] : '';
-            $currentDates[date('Y-m-d', $times)] = array('weekday' => $weekdays[date(('N'), $times)],
-                                                         'weekend' => in_array(date(('N'), $times), array(6, 7)),
-                                                         'text'    => array_key_exists($i, $texts) ? $texts[$i] : '',
-                                                         'date'    => date(('d M'), $times),
-                                                         'valueWeekAgo' =>  $weekAgoValue);
+            $times                               = strtotime('-' . $i . ' day');
+            $weekAgoTimes                        = strtotime('-' . ($i + 7) . ' day');
+            $weekAgoValue                        = isset($input[date('Y-m-d', $weekAgoTimes)]) ? $input[date('Y-m-d', $weekAgoTimes)] : '';
+            $currentDates[date('Y-m-d', $times)] = array('weekday'      => $weekdays[date(('N'), $times)],
+                                                         'weekend'      => in_array(date(('N'), $times), array(6, 7)),
+                                                         'text'         => array_key_exists($i, $texts) ? $texts[$i] : '',
+                                                         'date'         => date(('d M'), $times),
+                                                         'valueWeekAgo' => $weekAgoValue);
         }
 
         $results = array();
@@ -209,7 +211,7 @@ class Weight
             $results[$date]['display-date'] = $parts[0] . '-' . $parts[1] . '-' . $parts[2];
 
             if (isset($currentDates[$parts[0] . '-' . $parts[1] . '-' . $parts[2]])) {
-                $results[$date]['display-date'] = $currentDates[$parts[0] . '-' . $parts[1] . '-' . $parts[2]];
+                $results[$date]['display-date']         = $currentDates[$parts[0] . '-' . $parts[1] . '-' . $parts[2]];
                 $results[$date]['display-date']['date'] = self::replaceMonths($results[$date]['display-date']['date']);
             }
         }
@@ -218,7 +220,8 @@ class Weight
     }
 
     // TODO: move it out
-    protected static function replaceMonths($input){
+    protected static function replaceMonths($input)
+    {
         return str_replace(array_keys(self::$months), array_values(self::$months), $input);
     }
 
