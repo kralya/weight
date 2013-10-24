@@ -3,7 +3,12 @@
 class Weight
 {
     private static $weekdays = array(1 => 'Пн', 2 => 'Вт', 3 => 'Ср', 4 => 'Чт', 5 => 'Пт', 6 => 'Сб', 7 => 'Вс');
-    private static $todayTexts = array('Сегодня, ', 'Вчера, ', 'Позавчера, ', '', '', '', '');
+    private static $dayTexts = array('Сегодня, ', 'Вчера, ', 'Позавчера, ', '', '', '', '');
+    private static $months = array(
+        'Jan' => 'Января', 'Feb' => 'Февраля', 'Mar' => 'Марта',
+        'Apr' => 'Апреля', 'May' => 'Мая', 'Jun' => 'Июня',
+        'Jul' => 'Июля', 'Aug' => 'Августа', 'Sep' => 'Сентября',
+        'Oct' => 'Октября', 'Nov' => 'Ноября', 'Dec' => 'Декабря');
 
     public static function getForWeekday($weekday, $daysAgo)
     {
@@ -166,7 +171,7 @@ class Weight
     protected static function prepareJavascriptAndDisplayDates($input)
     {
         $weekdays = self::$weekdays;
-        $texts    = self::$todayTexts;
+        $texts    = self::$dayTexts;
         $total    = count($input);
         for ($i = 0; $i < $total; $i++) {
             $times        = strtotime('-' . $i . ' day');
@@ -202,12 +207,7 @@ class Weight
 
     // TODO: move it out
     public static function replaceMonths($input){
-        $months = array(
-            'Jan' => 'Января', 'Feb' => 'Февраля', 'Mar' => 'Марта',
-            'Apr' => 'Апреля', 'May' => 'Мая', 'Jun' => 'Июня',
-            'Jul' => 'Июля', 'Aug' => 'Августа', 'Sep' => 'Сентября',
-            'Oct' => 'Октября', 'Nov' => 'Ноября', 'Dec' => 'Декабря');
-        return str_replace(array_keys($months), array_values($months), $input);
+        return str_replace(array_keys(self::$months), array_values(self::$months), $input);
     }
 
     public static function set($date, $weight)
