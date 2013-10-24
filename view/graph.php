@@ -34,20 +34,19 @@
                 <li>ƒню недели:
                     <select onchange="if (this.selectedIndex) window.location = '/graph-for-weekday/' + this.options[this.selectedIndex].value;">
                         <option></option>
-                        <option value="1">ѕн</option>
-                        <option value="2">¬т</option>
-                        <option value="3">—р</option>
-                        <option value="4">„т</option>
-                        <option value="5">ѕт</option>
-                        <option value="6">—б</option>
-                        <option value="7">¬с</option>
+<?php $days = array(1 => 'ѕн', 2 => '¬т', 3 => '—р', 4 => '„т', 5 => 'ѕт', 6 => '—б', 7 => '¬с'); ?>
+                        <?php for($i=1;$i<8;$i++){ ?>
+                        <?php $selected = ($type=='weekday' && $term==$i) ? 'selected' : '' ?>
+                        <option <?php echo $selected ?> value="<?php echo $i ?>"><?php echo $days[$i] ?></option>
+                        <?php } ?>
                     </select>
                 </li>
                 <li>є мес€ца:
                     <select onchange="if (this.selectedIndex) window.location = '/graph-for-month/' + this.options[this.selectedIndex].value;">
                         <option></option>
                         <?php for($i=1;$i<13;$i++){ ?>
-                        <option value="<?php echo $i ?>"><?php echo $i ?></option>
+                        <?php $selected = ($type=='month' && $term==$i) ? 'selected' : '' ?>
+                        <option <?php echo $selected ?> value="<?php echo $i ?>"><?php echo $i ?></option>
                          <?php } ?>
                     </select>
                 </li>
@@ -56,7 +55,8 @@
                     <select onchange="if (this.selectedIndex) window.location = '/graph-for-week/' + this.options[this.selectedIndex].value;">
                         <option></option>
                         <?php for($i=1;$i<53;$i++){ ?>
-                        <option value="<?php echo $i ?>"><?php echo $i ?></option>
+                        <?php $selected = ($type=='week' && $term==$i) ? 'selected' : '' ?>
+                        <option <?php echo $selected ?> value="<?php echo $i ?>"><?php echo $i ?></option>
                         <?php } ?>
                     </select>
                 </li>
