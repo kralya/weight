@@ -12,7 +12,22 @@ class Weight
 
     public static function getForWeekday($weekday, $daysAgo)
     {
+        if((int)$weekday > 0){
+            if(!array_key_exists((int)$weekday, self::$weekdays)){
+                return array();
+            }
+            $weekday = self::$weekdays[(int)$weekday];
+        }
 
+        $weights = self::getForDaysAgo($daysAgo);
+
+        foreach($weights as $key => $weight){
+            if($weight['display-date']['weekday'] !== $weekday){
+                unset($weights[$key]);
+            }
+        }
+
+        return $weights;
     }
 
     public static function isDisplayed($weights)

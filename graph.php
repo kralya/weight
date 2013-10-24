@@ -2,7 +2,13 @@
 include_once('config.php');
 Auth::redirectUnlogged();
 
-$weights    = Weight::getForDaysAgo(10000);
+//var_dump($_GET['graph'], $_GET['term']);
+if ($_GET['graph'] == 'weekday') {
+    $weights = Weight::getForWeekday($_GET['term'], 10000);
+} else {
+    $weights = Weight::getForDaysAgo(10000);
+}
+
 $bullet = new Bullet();
 
 Core::loadTemplate('av_header', array('weights'        => $weights,
