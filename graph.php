@@ -2,8 +2,8 @@
 include_once('config.php');
 Auth::redirectUnlogged();
 
-$term = (int)$_GET['term'];
-$type = $_GET['graph'];
+$term = isset($_GET['term']) ? (int)$_GET['term'] : null;
+$type = isset($_GET['graph']) ? $_GET['graph'] : null;
 
 if ($type == 'month' && $term > 0 && $term < 13) {
     $dates   = new Dates();
@@ -19,7 +19,7 @@ if ($type == 'weekday' && $term > 0 && $term < 8) {
     $weights = Weight::getForWeekday($term, 10000);
 }
 
-if (!isset($_GET['graph'])) {
+if (!$type) {
     $weights = Weight::getForDaysAgo(10000);
 }
 
@@ -31,6 +31,8 @@ Core::loadTemplate('av_header', array('weights'        => $weights,
                                       'trendPoints'    => array(),
                                       'bulletSize'     => $bullet->getSizeFor($weights)));
 Core::loadTemplate('graph', array('displayWeight' => Weight::isDisplayed($weights),
-                                  'period'        => ''));
+                                  'period'        => '',
+                                  'term'          => $term,
+                                  'graph'         => $type));
 Core::loadTemplate('av_footer', array('link'     => INDEX_PAGE,
                                       'linkText' => '¬вести вес:'));
