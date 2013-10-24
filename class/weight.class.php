@@ -2,6 +2,14 @@
 
 class Weight
 {
+    private static $weekdays = array(1 => 'Пн', 2 => 'Вт', 3 => 'Ср', 4 => 'Чт', 5 => 'Пт', 6 => 'Сб', 7 => 'Вс');
+    private static $todayTexts = array('Сегодня, ', 'Вчера, ', 'Позавчера, ', '', '', '', '');
+
+    public static function getForWeekday($weekday, $daysAgo)
+    {
+
+    }
+
     public static function isDisplayed($weights)
     {
         $counter = 0;
@@ -90,11 +98,6 @@ class Weight
         $dt = new MyDateTime();
         $xTodayDate = $dt->setTimestamp($xTodayTimestamp);
 
-//        var_dump(array(
-//            array($xVeryFirstDate->format('Y, m,d, H'), round($yVeryFirst, 1)),
-//            array($xTodayDate->format('Y, m, d, H'), round($yToday, 1))
-//        ));
-
         return (array(
             array($xVeryFirstDate->format('Y, m,d, H'), round($yVeryFirst, 1)),
             array($xTodayDate->format('Y, m, d, H'), round($yToday, 1))
@@ -162,8 +165,8 @@ class Weight
     // in PHP 1 means January. Decrease month number by one.
     protected static function prepareJavascriptAndDisplayDates($input)
     {
-        $weekdays = array(1 => 'Пн', 2 => 'Вт', 3 => 'Ср', 4 => 'Чт', 5 => 'Пт', 6 => 'Сб', 7 => 'Вс');
-        $texts    = array('Сегодня, ', 'Вчера, ', 'Позавчера, ', '', '', '', '');
+        $weekdays = self::$weekdays;
+        $texts    = self::$todayTexts;
         $total    = count($input);
         for ($i = 0; $i < $total; $i++) {
             $times        = strtotime('-' . $i . ' day');
