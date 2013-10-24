@@ -33,7 +33,7 @@
 
 /**
  * DONE 1. Print button.
- * 2. Build graph by week day for year.
+ * DONE 2. Build graph by week day for year.
  * 3. Build graph for given month
  * 4. Build graph for given week
  * DONE 5. Shorten week day names for shortened

@@ -149,14 +149,17 @@ class Weight
         return $weights;
     }
 
-    public static function getForDaysAgo($daysAgo)
+    public static function getForDaysAgo($daysAgo, $offset = 0)
     {
         $daysAgo +=7; // it is to have past week value
         $email = Auth::getEmail();
         $finish = new DateTime("-$daysAgo days");
+        $start  = new DateTime("-$offset days");
 
-        $query = 'SELECT weight, w.created_at FROM weight w, user u WHERE u.id = w.id_user AND u.email = "%s" AND w.created_at > "%s" AND w.weight <> ""';
-        $res = mysql_query(sprintf($query, $email, $finish->format('Y-m-d')));
+        $query = 'SELECT weight, w.created_at FROM weight w, user u
+        WHERE u.id = w.id_user AND u.email = "%s" AND w.created_at > "%s" AND w.created_at <= "%s" AND w.weight <> ""';
+
+        $res = mysql_query(sprintf($query, $email, $finish->format('Y-m-d'), $start->format('Y-m-d')));
 
         $weights = array();
         while ($row = mysql_fetch_assoc($res)) {
