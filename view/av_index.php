@@ -1,4 +1,4 @@
-<div class="layout">
+<div class="layout" xmlns="http://www.w3.org/1999/html">
     <input type="hidden" id="email" value="<?php echo $email ?>"/>
 
     <h1>Ввести вес ( в КГ, с точностью до десятых ):</h1>
@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div id="date-<?php echo $key ?>" class="dates">
-                <span><?php echo $value['display-date']['text'] ?></span>
+                <span class="weekday"><?php echo $value['display-date']['text'] ?>&nbsp;</span>
                 <span class="weekday <?php echo $value['display-date']['weekend'] ? 'weekend' : '' ?> ">
                     <?php echo $value['display-date']['weekday'] ?>,
                 </span>
