@@ -14,7 +14,6 @@ ToDo:
 
 - internationalize to English;
 - move controllers to separate folder;
-- add routing;
-- fix identity loginza issue;
 - add routes and concentrate it in the same place;
+- fix identity loginza issue;
 - add possibility to delete records.
