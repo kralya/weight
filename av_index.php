@@ -2,7 +2,8 @@
 include_once('config.php');
 Auth::redirectUnlogged();
 
-$weights = Weight::getForDaysAgo(DAYS_AGO_INDEX);
+$toGetPastWeekValues = 7;
+$weights = Weight::getForDaysAgo(DAYS_AGO_INDEX + $toGetPastWeekValues);
 $email = Auth::getEmail();
 
 Core::loadTemplate('av_header', array('title' => 'Дневник веса'));

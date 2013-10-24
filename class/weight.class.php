@@ -151,13 +151,18 @@ class Weight
 
     public static function getForDaysAgo($daysAgo, $offset = 0)
     {
-        $daysAgo +=7; // it is to have past week value
+        if ((is_integer($daysAgo))) {
+            $finish = new DateTime("-$daysAgo days");
+            $start  = new DateTime("-$offset days");
+        } else {
+            $finish = new DateTime("-$daysAgo days");
+            $start  = new DateTime("-$offset days");
+        }
+
         $email = Auth::getEmail();
-        $finish = new DateTime("-$daysAgo days");
-        $start  = new DateTime("-$offset days");
 
         $query = 'SELECT weight, w.created_at FROM weight w, user u
-        WHERE u.id = w.id_user AND u.email = "%s" AND w.created_at > "%s" AND w.created_at <= "%s" AND w.weight <> ""';
+        WHERE u.id = w.id_user AND u.email = "%s" AND w.created_at >= "%s" AND w.created_at <= "%s" AND w.weight <> ""';
 
         $res = mysql_query(sprintf($query, $email, $finish->format('Y-m-d'), $start->format('Y-m-d')));
 
@@ -217,14 +222,11 @@ class Weight
             }
         }
 
-        // delete first 7 results
-        $results = array_slice($results, 7);
-
         return $results;
     }
 
     // TODO: move it out
-    public static function replaceMonths($input){
+    protected static function replaceMonths($input){
         return str_replace(array_keys(self::$months), array_values(self::$months), $input);
     }
 
