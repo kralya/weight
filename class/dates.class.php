@@ -4,7 +4,7 @@ class Dates
 {
     public function getWeekStartByNumber($number)
     {
-        $firstMondayTimestamp = strtotime("first monday of january 2013");
+        $firstMondayTimestamp = strtotime("first monday of january ".date('Y'));
         $startTimestamp       = $firstMondayTimestamp + 60 * 60 * 24 * 7 * ($number - 1);
 
         return date('Y-m-d', $startTimestamp);
@@ -12,7 +12,7 @@ class Dates
 
     public function getWeekEndByNumber($number)
     {
-        $firstMondayTimestamp = strtotime("first monday of january 2013");
+        $firstMondayTimestamp = strtotime("first monday of january ".date('Y'));
         $startTimestamp       = $firstMondayTimestamp + 60 * 60 * 24 * 7 * ($number - 1);
         $endTimestamp         = $startTimestamp + 60 * 60 * 24 * 7;
 
