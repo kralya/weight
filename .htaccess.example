@@ -7,7 +7,7 @@ RewriteEngine on
 RewriteBase /
 
 RewriteRule ^welcome$ welcome.php [L]
-RewriteRule ^logout logout.php [L]
+RewriteRule ^logout$ logout.php [L]
 
 RewriteRule ^index.php$ av_index.php [L]
 RewriteRule ^$ av_index.php [L]
@@ -20,4 +20,4 @@ RewriteRule ^graph-for-weekday/(.*)$ graph.php?graph=weekday&term=$1 [L]
 RewriteRule ^graph-for-month/(.*)$ graph.php?graph=month&term=$1 [L]
 RewriteRule ^graph-for-week/(.*)$ graph.php?graph=week&term=$1 [L]
 
-RewriteRule ^graph graph.php [L]
+RewriteRule ^graph$ graph.php [L]
