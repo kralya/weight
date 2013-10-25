@@ -27,7 +27,7 @@ class Weight
                 }
 
                 if (1 < $totalThisWeek) {
-                    $result[$week] = true;
+                    $result[] = $week;
                     break;
                 }
             }
