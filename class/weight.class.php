@@ -12,7 +12,7 @@ class Weight
 
     public static function getWeeksWithGraph()
     {
-        $weights = self::getPositiveWeightForDaysAgo('2013-01-01', date('Y-m-d'));
+        $weights = self::getPositiveWeightForDaysAgo(date('Y') . '-01-01', date('Y-m-d'));
 
         $dates  = new Dates();
         $result = array();
