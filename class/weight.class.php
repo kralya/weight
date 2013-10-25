@@ -10,6 +10,32 @@ class Weight
         'Jul' => 'Июля', 'Aug' => 'Августа', 'Sep' => 'Сентября',
         'Oct' => 'Октября', 'Nov' => 'Ноября', 'Dec' => 'Декабря');
 
+    public static function getWeeksWithGraph()
+    {
+        $weights = self::getPositiveWeightForDaysAgo(date('Y') . '-01-01', date('Y-m-d'));
+
+        $dates  = new Dates();
+        $result = array();
+
+        for ($week = 1; $week < 53; $week++) {
+            $firstWeekDay  = $dates->getWeekStartByNumber($week);
+            $totalThisWeek = 0;
+            for ($day = 0; $day < 7; $day++) {
+                $checkDate = date('Y-m-d', strtotime($firstWeekDay) + $day * 24 * 60 * 60);
+                if (array_key_exists($checkDate, $weights) && !empty($weights[$checkDate]['weight'])) {
+                    $totalThisWeek++;
+                }
+
+                if (1 < $totalThisWeek) {
+                    $result[] = $week;
+                    break;
+                }
+            }
+        }
+
+        return $result;
+    }
+
     public static function getForWeekday($weekday, $daysAgo)
     {
         $weekday = self::$weekdays[(int)$weekday];
@@ -35,91 +61,6 @@ class Weight
         return $counter > 1;
     }
 
-    public static function getTrendFor($weight, $daysAgo)
-    {
-        $total = count($weight);
-
-// if amount of points < 2, return;
-        if (2 > $total) {
-            return;
-        }
-
-// split array to two halves: left (up to middle, including it if there is even amount) and right, from middle to end element
-        if ($total % 2 === 0) {
-            $weightFirst  = array_slice($weight, 0, $total / 2);
-            $weightSecond = array_slice($weight, $total / 2, $total / 2);
-        } else {
-            $weightFirst  = array_slice($weight, 0, ceil($total / 2));
-            $weightSecond = array_slice($weight, floor($total / 2), ceil($total / 2));
-        }
-
-// count two sums: sum of 'left' and sum of 'right' sub-arrays.
-        function countZ($value)
-        {
-            return $value['weight'];
-        }
-
-//        $countFunctionY = function($value){return $value['weight'];};
-        $sumFirstY  = array_sum(array_map('countZ', $weightFirst));
-        $sumSecondY = array_sum(array_map('countZ', $weightSecond));
-
-// count arithmetical means of these sums. It is two Y ordinate values.
-        $yFirst  = $sumFirstY / ceil($total / 2);
-        $ySecond = $sumSecondY / ceil($total / 2);
-
-// count two sums of dates of 'left' and 'right' of 'left' and 'right' sub-arrays.
-
-//        $countFunctionX = function($value){return (new DateTime($value['js-date']))->getTimestamp();};
-        function countZZ($value)
-        {
-            $dt = new MyDateTime($value['js-date']);
-            return $dt->getTimestamp();
-        }
-
-        $sumFirstX  = array_sum(array_map('countZZ', $weightFirst));
-        $sumSecondX = array_sum(array_map('countZZ', $weightSecond));
-
-// count arithmetical means of these sums. It is two X ordinate values.
-        $xFirstTimestamp  = $sumFirstX / ceil($total / 2);
-        $xSecondTimestamp = $sumSecondX / ceil($total / 2);
-
-// format dates to usual format
-        $xdFirst = new MyDateTime();
-        $xdFirst->setTimestamp($xFirstTimestamp);
-        $xdSecond = new MyDateTime();
-        $xdSecond->setTimestamp($xSecondTimestamp);
-
-// At this point we got two points. Unfortunately, these are in the middle. We need points at the edge of screen.
-// First end of interval is Today-$daysAgo, second is today.
-
-// count coefficient:
-        $ratio = ($yFirst - $ySecond) / ($xFirstTimestamp - $xSecondTimestamp);
-// -1 month is because we used javascript to operate, there is 1 month difference
-// TODO: check edge values of month for bugs.
-
-        $dt                  = (new MyDateTime('-1 month'));
-        $xTodayTimestamp     = $dt->getTimestamp();
-        $dt                  = (new MyDateTime('-1month -' . $daysAgo . ' days'));
-        $xVeryFirstTimestamp = $dt->getTimestamp();
-
-// according to previous ratio calculation, get equations for today X and Y, and for -$daysAgo point X and Y
-#        $ratio = ($yFirst - $yToday) / ($xFirstTimestamp - $xTodayTimestamp);
-#        $ratio * ($xFirstTimestamp - $xTodayTimestamp) = $yFirst - $yToday;
-        $yToday = $yFirst - $ratio * ($xFirstTimestamp - $xTodayTimestamp);
-#        $ratio = ($yVeryFirst - $yFirst) / ($xVeryFirstTimestamp - $xFirstTimestamp);
-        $yVeryFirst = $ratio * ($xVeryFirstTimestamp - $xFirstTimestamp) + $yFirst;
-
-        $dt             = new MyDateTime();
-        $xVeryFirstDate = $dt->setTimestamp($xVeryFirstTimestamp);
-        $dt             = new MyDateTime();
-        $xTodayDate     = $dt->setTimestamp($xTodayTimestamp);
-
-        return (array(
-            array($xVeryFirstDate->format('Y, m,d, H'), round($yVeryFirst, 1)),
-            array($xTodayDate->format('Y, m, d, H'), round($yToday, 1))
-        ));
-    }
-
     public static function get($date)
     {
         $email = Auth::getEmail();
@@ -133,9 +74,9 @@ class Weight
         return $row['weight'];
     }
 
-    public static function getPositiveWeightForDaysAgo($daysAgo)
+    public static function getPositiveWeightForDaysAgo($daysAgo, $offset=0)
     {
-        $weights = self::getForDaysAgo($daysAgo);
+        $weights = self::getForDaysAgo($daysAgo, $offset);
         foreach ($weights as $key => $weight) {
             if ($weight['weight'] == '') {
                 unset($weights[$key]);
@@ -145,20 +86,26 @@ class Weight
         return $weights;
     }
 
+    /**
+     * @static
+     * @param $daysAgo, from
+     * @param int $offset, to
+     * @return array
+     */
     public static function getForDaysAgo($daysAgo, $offset = 0)
     {
         if ((is_integer($daysAgo))) {
-            $finish = new DateTime("-$daysAgo days");
-            $start  = new DateTime("-$offset days");
+            $start = new DateTime("-$daysAgo days");
+            $finish = new DateTime("-$offset days");
         } else {
-            $finish = new DateTime($daysAgo);
-            $start  = new DateTime($offset);
+            $start = new DateTime($daysAgo);
+            $finish = new DateTime($offset);
         }
 
         $query = 'SELECT weight, w.created_at FROM weight w, user u
         WHERE u.id = w.id_user AND u.email = "%s" AND w.created_at >= "%s" AND w.created_at <= "%s" AND w.weight <> ""';
 
-        $res = mysql_query(sprintf($query, Auth::getEmail(), $finish->format('Y-m-d'), $start->format('Y-m-d')));
+        $res = mysql_query(sprintf($query, Auth::getEmail(), $start->format('Y-m-d'), $finish->format('Y-m-d')));
 
         $weights = array();
         while ($row = mysql_fetch_assoc($res)) {

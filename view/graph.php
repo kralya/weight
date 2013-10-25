@@ -57,9 +57,9 @@
                     <select
                         onchange="if (this.selectedIndex) window.location = '/graph-for-week/' + this.options[this.selectedIndex].value;">
                         <option></option>
-                        <?php for ($i = 1; $i < 53; $i++) { ?>
-                        <?php $selected = ($type == 'week' && $term == $i) ? 'selected' : '' ?>
-                        <option <?php echo $selected ?> value="<?php echo $i ?>"><?php echo $i ?></option>
+                        <?php foreach ($weeks as $wc) { ?>
+                        <?php $selected = ($type == 'week' && $term == $wc) ? 'selected' : '' ?>
+                        <option <?php echo $selected ?> value="<?php echo $wc ?>"><?php echo $wc ?></option>
                         <?php } ?>
                     </select>
                 </li>

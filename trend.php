@@ -10,7 +10,7 @@ $weights    = Weight::getForDaysAgo($totalDaysZ);
 
 if ($totalDays) {
     $points      = Weight::getPositiveWeightForDaysAgo($totalDays);
-    $trendPoints = Weight::getTrendFor($points, $totalDays);
+    $trendPoints = Trend::getFor($points, $totalDays);
 } else {
     $trendPoints = null;
 }
@@ -23,6 +23,7 @@ Core::loadTemplate('av_header', array('weights'        => $weights,
                                       'trendPoints'    => $trendPoints,
                                       'bulletSize'     => $bullet->getSizeFor($weights)));
 Core::loadTemplate('graph', array('displayWeight' => Weight::isDisplayed($weights),
-                                  'period'        => $period));
+                                  'period'        => $period,
+                                  'weeks'         => Weight::getWeeksWithGraph()));
 Core::loadTemplate('av_footer', array('link'     => INDEX_PAGE,
                                       'linkText' => '¬вести вес:'));
