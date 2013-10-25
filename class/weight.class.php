@@ -10,21 +10,30 @@ class Weight
         'Jul' => 'Июля', 'Aug' => 'Августа', 'Sep' => 'Сентября',
         'Oct' => 'Октября', 'Nov' => 'Ноября', 'Dec' => 'Декабря');
 
-    public static function getWeeksWithResults()
+    public static function getWeeksWithGraph()
     {
-        // should do next:
+        $weights = self::getPositiveWeightForDaysAgo('2013-01-01', date('Y-m-d'));
 
-//        $weights = self::getForDaysAgo('2013-01-01', '2013-10-20');
+        $dates  = new Dates();
+        $result = array();
 
-//        echo count($weights);
-//        var_dump($weights);
-//        var_dump(count($weights));
-        // get weights for 1 year;
-        // for $i = 1 to 52:
+        for ($week = 1; $week < 53; $week++) {
+            $firstWeekDay  = $dates->getWeekStartByNumber($week);
+            $totalThisWeek = 0;
+            for ($day = 0; $day < 7; $day++) {
+                $checkDate = date('Y-m-d', strtotime($firstWeekDay) + $day * 24 * 60 * 60);
+                if (array_key_exists($checkDate, $weights) && !empty($weights[$checkDate]['weight'])) {
+                    $totalThisWeek++;
+                }
 
-        // if there are >1 results for $i week, $result[] = $i;
+                if (1 < $totalThisWeek) {
+                    $result[$week] = true;
+                    break;
+                }
+            }
+        }
 
-        // return $result;
+        return $result;
     }
 
     public static function getForWeekday($weekday, $daysAgo)
@@ -65,9 +74,9 @@ class Weight
         return $row['weight'];
     }
 
-    public static function getPositiveWeightForDaysAgo($daysAgo)
+    public static function getPositiveWeightForDaysAgo($daysAgo, $offset=0)
     {
-        $weights = self::getForDaysAgo($daysAgo);
+        $weights = self::getForDaysAgo($daysAgo, $offset);
         foreach ($weights as $key => $weight) {
             if ($weight['weight'] == '') {
                 unset($weights[$key]);
@@ -77,20 +86,26 @@ class Weight
         return $weights;
     }
 
+    /**
+     * @static
+     * @param $daysAgo, from
+     * @param int $offset, to
+     * @return array
+     */
     public static function getForDaysAgo($daysAgo, $offset = 0)
     {
         if ((is_integer($daysAgo))) {
-            $finish = new DateTime("-$daysAgo days");
-            $start  = new DateTime("-$offset days");
+            $start = new DateTime("-$daysAgo days");
+            $finish = new DateTime("-$offset days");
         } else {
-            $finish = new DateTime($daysAgo);
-            $start  = new DateTime($offset);
+            $start = new DateTime($daysAgo);
+            $finish = new DateTime($offset);
         }
 
         $query = 'SELECT weight, w.created_at FROM weight w, user u
         WHERE u.id = w.id_user AND u.email = "%s" AND w.created_at >= "%s" AND w.created_at <= "%s" AND w.weight <> ""';
 
-        $res = mysql_query(sprintf($query, Auth::getEmail(), $finish->format('Y-m-d'), $start->format('Y-m-d')));
+        $res = mysql_query(sprintf($query, Auth::getEmail(), $start->format('Y-m-d'), $finish->format('Y-m-d')));
 
         $weights = array();
         while ($row = mysql_fetch_assoc($res)) {
