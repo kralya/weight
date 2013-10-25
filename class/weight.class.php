@@ -10,6 +10,18 @@ class Weight
         'Jul' => 'Июля', 'Aug' => 'Августа', 'Sep' => 'Сентября',
         'Oct' => 'Октября', 'Nov' => 'Ноября', 'Dec' => 'Декабря');
 
+    public static function getWeeksWithResults()
+    {
+        // should do next:
+
+        // get weights for 1 year;
+        // for $i = 1 to 52:
+        
+        // if there are >1 results for $i week, $result[] = $i;
+
+        // return $result;
+    }
+
     public static function getForWeekday($weekday, $daysAgo)
     {
         $weekday = self::$weekdays[(int)$weekday];
