@@ -13,7 +13,7 @@ Dev: при наведении мышки на квадрат давать его увеличенное изображение?
  *
  * DONE - increase size of bullets
  * - Add increased image of weight input box;
- * - Move week number in dropdown by -1.
+ * DONE - Move week number in dropdown by -1.
  * - Set weeks numbers in dropdown to be displayed only if the week has 2 or more entries
  * - Set possibility to build trend on any date interval.
  *
