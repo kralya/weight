@@ -15,10 +15,9 @@ Dev: при наведении мышки на квадрат давать его увеличенное изображение?
  * DONE - Move week number in dropdown by -1.
  *
  * DONE - Set weeks numbers in dropdown to be displayed only if the week has 2 or more entries
+ * IMPOSSIBLE - Add increased image of weight input box;
+ *
  * - Set possibility to build trend on any date interval.
- *
- * - Add increased image of weight input box;
  * - Add routing: try symfony routing component to avoid wheel re-inventing.
- *
  **/
 ?>
