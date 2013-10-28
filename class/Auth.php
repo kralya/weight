@@ -1,5 +1,7 @@
 <?php
 
+namespace Models;
+
 class Auth
 {
     protected static $user;
