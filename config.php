@@ -26,10 +26,26 @@ use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
 use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\Matcher\UrlMatcher;
+use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 
-$route = new Route('/graph', array('controller' => 'GraphController'));
 $routes = new RouteCollection();
-$routes->add('route_name', $route);
+//$route = new Route('/graph', array('controller' => 'GraphController'));
+
+//$routes->add(
+//    new Route(
+//        '/membersnewmail/:e/:k',
+//        array(
+//            'controller' => 'Members', 'action' => 'changeEmail', 'module' => 'FrontEnd'
+//        )
+//    )
+//);
+
+// 1. htaccess should redirect to index
+// 2. index should include Core
+// 3. Core should select controller, and call it.
+
+$routes->add('graph', new Route('/graph', array('controller' => 'GraphController')));
+$routes->add('graph', new Route('/graph-for-month/:month', array('controller' => 'GraphController')));
 
 $context = new RequestContext($_SERVER['REQUEST_URI']);
 $matcher = new UrlMatcher($routes, $context);
@@ -39,8 +55,6 @@ $path = $_SERVER['REQUEST_URI'];
 try{
     $parameters = $matcher->match($path);
     $controller = $parameters['controller'];
-} catch (\Symfony\Component\Routing\Exception\ResourceNotFoundException $e){
+} catch (ResourceNotFoundException $e){
     $controller = 'inputController';
 }
-
-//var_dump($controller);
