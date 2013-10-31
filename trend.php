@@ -17,7 +17,7 @@ if ($totalDays) {
 
 $bullet = new Bullet();
 
-Core::loadTemplate('av_header', array('weights'        => $weights,
+Core::loadTemplate('header', array('weights'        => $weights,
                                       'useChartScript' => true,
                                       'title'          => 'График веса',
                                       'trendPoints'    => $trendPoints,
@@ -25,5 +25,5 @@ Core::loadTemplate('av_header', array('weights'        => $weights,
 Core::loadTemplate('graph', array('displayWeight' => Weight::isDisplayed($weights),
                                   'period'        => $period,
                                   'weeks'         => Weight::getWeeksWithGraph()));
-Core::loadTemplate('av_footer', array('link'     => INDEX_PAGE,
+Core::loadTemplate('footer', array('link'     => INDEX_PAGE,
                                       'linkText' => 'Ввести вес:'));

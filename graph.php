@@ -25,7 +25,7 @@ if (!$type) {
 
 $bullet = new Bullet();
 
-Core::loadTemplate('av_header', array('weights'        => $weights,
+Core::loadTemplate('header', array('weights'        => $weights,
                                       'useChartScript' => true,
                                       'title'          => 'График веса',
                                       'trendPoints'    => array(),
@@ -35,5 +35,5 @@ Core::loadTemplate('graph', array('displayWeight' => Weight::isDisplayed($weight
                                   'term'          => $term,
                                   'type'          => $type,
                                   'weeks'         => Weight::getWeeksWithGraph()));
-Core::loadTemplate('av_footer', array('link'     => INDEX_PAGE,
+Core::loadTemplate('footer', array('link'     => INDEX_PAGE,
                                       'linkText' => 'Ввести вес:'));
