@@ -9,8 +9,7 @@ RewriteBase /
 RewriteRule ^welcome$ welcome.php [L]
 RewriteRule ^logout$ logout.php [L]
 
-RewriteRule ^index.php$ av_index.php [L]
-RewriteRule ^$ av_index.php [L]
+RewriteRule ^$ index.php [L]
 
 RewriteRule ^graph-trend-week$ trend.php?trend=week [L]
 RewriteRule ^graph-trend-month$ trend.php?trend=month [L]
