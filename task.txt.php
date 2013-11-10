@@ -19,5 +19,12 @@ Dev: при наведении мышки на квадрат давать его увеличенное изображение?
  *
  * - Set possibility to build trend on any date interval.
  * - Add routing: try symfony routing component to avoid wheel re-inventing.
+ * - Add possibility to add link, that is active for some time, and displays data for this user for given graph.
+ * - add index of body mass, m / (h*h), h-height
+ *
+ * - An obvious call to action
+ * - Customer testimonials
+ * - Easy-to-find contact information
+ * - A clear description of who you are
  **/
 ?>
