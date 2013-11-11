@@ -21,6 +21,7 @@ Dev: при наведении мышки на квадрат давать его увеличенное изображение?
  * - Add routing: try symfony routing component to avoid wheel re-inventing.
  * - Add possibility to add link, that is active for some time, and displays data for this user for given graph.
  * - add index of body mass, m / (h*h), h-height
+ * - possibility to set weight for older periods
  *
  * - An obvious call to action
  * - Customer testimonials
