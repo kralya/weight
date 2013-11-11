@@ -2,8 +2,8 @@
 include_once('config.php');
 Auth::redirectUnlogged();
 
-$term = isset($_GET['term']) ? (int)$_GET['term'] : null;
-$type = isset($_GET['graph']) ? $_GET['graph'] : null;
+$term = isset($term) ? (int)$term : null;
+$type = isset($graph) ? $graph : null;
 
 if ($type == 'month' && $term > 0 && $term < 13) {
     $dates   = new Dates();

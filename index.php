@@ -27,14 +27,11 @@ $path = $_SERVER['REQUEST_URI'];
 
 try {
     $parameters = $matcher->match($path);
-
     $controller = $parameters['controller'];
 } catch (ResourceNotFoundException $e) {
-    $controller = 'indexController';
+    $controller = 'IndexController';
 }
-$file      = strtolower(str_replace('Controller', '', $controller)).'.php';
-$inclusion = file_exists('controller/' . $file) ? 'controller/' . $file : 'controller/index.php';
+$file      = strtolower(str_replace('Controller', '', $controller));
+$inclusion = file_exists('controller/' . $file.'.php') ? $file : 'index';
 
-//var_dump($inclusion);
-
-include_once($inclusion);
+Core::loadController($inclusion, $parameters);
