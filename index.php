@@ -23,15 +23,13 @@ $routes->add('save', new Route('/save', array('controller' => 'SaveController'))
 $context = new RequestContext($_SERVER['REQUEST_URI']);
 $matcher = new UrlMatcher($routes, $context);
 
-$path = $_SERVER['REQUEST_URI'];
-
 try {
-    $parameters = $matcher->match($path);
+    $parameters = $matcher->match($_SERVER['REQUEST_URI']);
     $controller = $parameters['controller'];
 } catch (ResourceNotFoundException $e) {
-    $controller = 'IndexController';
+    Utility::redirect('/');
 }
 $file      = strtolower(str_replace('Controller', '', $controller));
-$inclusion = file_exists('controller/' . $file.'.php') ? $file : 'index';
+$inclusion = file_exists('controller/' . $file . '.php') ? $file : 'index';
 
 Core::loadController($inclusion, $parameters);
