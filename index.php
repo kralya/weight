@@ -26,10 +26,11 @@ $matcher = new UrlMatcher($routes, $context);
 try {
     $parameters = $matcher->match($_SERVER['REQUEST_URI']);
     $controller = $parameters['controller'];
+    $file       = strtolower(str_replace('Controller', '', $controller));
+    $inclusion  = file_exists('controller/' . $file . '.php') ? $file : 'index';
+
+    Core::loadController($inclusion, $parameters);
+
 } catch (ResourceNotFoundException $e) {
     Utility::redirect('/');
 }
-$file      = strtolower(str_replace('Controller', '', $controller));
-$inclusion = file_exists('controller/' . $file . '.php') ? $file : 'index';
-
-Core::loadController($inclusion, $parameters);
