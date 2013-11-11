@@ -10,7 +10,7 @@ function sendWeight() {
     var input = '#' + boxId.replace('-form', '') + '-input_selected';
     var weight = $(input).val().replace(',','.');
 
-    $.post('save.php', {email:email, weight:weight, date:date, sid:Math.random()}, function (response) {
+    $.post('/save', {email:email, weight:weight, date:date, sid:Math.random()}, function (response) {
 
         if (response.search('wrong') != -1) {
             return false;

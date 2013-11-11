@@ -7,7 +7,7 @@
 <div class="wr">
     <h2>Введите адрес электронной почты:</h2>
 
-    <form action="welcome.php" method="post" id="my-form">
+    <form action="/welcome" method="post" id="my-form">
         <input type="text" name="email" class="tx" id="email" value="<?php echo $email ?>" autofocus>
         <input type="submit" name="submit" class="entr" value="Войти"/>
         <br/>
