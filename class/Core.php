@@ -6,7 +6,7 @@ class Core{
             $$key = $value;
         }
 
-        include('view//'.$template.'.php');
+        include(PATH.'/view/'.$template.'.php');
     }
 
     public static function loadConfig(){
