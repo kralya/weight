@@ -26,10 +26,11 @@ if (isset($_POST['email']) && Validate::email($email) || isset($_COOKIE['login']
     }
 
     Auth::login($email);
+
     Utility::redirect('/');
 
 }
 
-Core::loadTemplate('av_header', array('title' => 'Дневник веса', 'notLogged' => true));
+Core::loadTemplate('header', array('title' => 'Дневник веса', 'notLogged' => true));
 Core::loadTemplate('welcome', array('message' => $message, 'email' => $email));
-Core::loadTemplate('av_footer');
+Core::loadTemplate('footer');

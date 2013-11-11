@@ -2,8 +2,8 @@
 include_once('config.php');
 Auth::redirectUnlogged();
 
-$term = isset($_GET['term']) ? (int)$_GET['term'] : null;
-$type = isset($_GET['graph']) ? $_GET['graph'] : null;
+$term = isset($term) ? (int)$term : null;
+$type = isset($graph) ? $graph : null;
 
 if ($type == 'month' && $term > 0 && $term < 13) {
     $dates   = new Dates();
@@ -25,7 +25,7 @@ if (!$type) {
 
 $bullet = new Bullet();
 
-Core::loadTemplate('av_header', array('weights'        => $weights,
+Core::loadTemplate('header', array('weights'        => $weights,
                                       'useChartScript' => true,
                                       'title'          => 'График веса',
                                       'trendPoints'    => array(),
@@ -35,5 +35,5 @@ Core::loadTemplate('graph', array('displayWeight' => Weight::isDisplayed($weight
                                   'term'          => $term,
                                   'type'          => $type,
                                   'weeks'         => Weight::getWeeksWithGraph()));
-Core::loadTemplate('av_footer', array('link'     => INDEX_PAGE,
+Core::loadTemplate('footer', array('link'     => INDEX_PAGE,
                                       'linkText' => 'Ввести вес:'));

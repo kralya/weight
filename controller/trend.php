@@ -1,7 +1,7 @@
 <?php
 include_once('config.php');
 Auth::redirectUnlogged();
-$period = $_GET['trend'];
+$period = isset($trend) ? $trend : '';
 
 $days       = array('week' => 7, 'month' => 30, 'year' => 365);
 $totalDaysZ = array_key_exists($period, $days) ? $days[$period] : 10000;
@@ -17,7 +17,7 @@ if ($totalDays) {
 
 $bullet = new Bullet();
 
-Core::loadTemplate('av_header', array('weights'        => $weights,
+Core::loadTemplate('header', array('weights'        => $weights,
                                       'useChartScript' => true,
                                       'title'          => 'График веса',
                                       'trendPoints'    => $trendPoints,
@@ -25,5 +25,5 @@ Core::loadTemplate('av_header', array('weights'        => $weights,
 Core::loadTemplate('graph', array('displayWeight' => Weight::isDisplayed($weights),
                                   'period'        => $period,
                                   'weeks'         => Weight::getWeeksWithGraph()));
-Core::loadTemplate('av_footer', array('link'     => INDEX_PAGE,
+Core::loadTemplate('footer', array('link'     => INDEX_PAGE,
                                       'linkText' => 'Ввести вес:'));

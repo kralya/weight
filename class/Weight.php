@@ -42,6 +42,10 @@ class Weight
         $weights = self::getForDaysAgo($daysAgo);
 
         foreach ($weights as $key => $weight) {
+            if(!isset($weight['display-date']['weekday'])){
+                continue;
+            }
+
             if ($weight['display-date']['weekday'] !== $weekday) {
                 unset($weights[$key]);
             }
