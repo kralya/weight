@@ -1,7 +1,7 @@
 <div class="layout" xmlns="http://www.w3.org/1999/html">
     <input type="hidden" id="email" value="<?php echo $email ?>"/>
 
-    <h1>Ввести вес ( в КГ, с точностью до десятых ):</h1>
+    <h1>Р’РІРµСЃС‚Рё РІРµСЃ ( РІ РљР“, СЃ С‚РѕС‡РЅРѕСЃС‚СЊСЋ РґРѕ РґРµСЃСЏС‚С‹С… ):</h1>
     <ul class="calculation">
         <?php foreach ($weights as $key => $value) { ?>
 
@@ -23,7 +23,7 @@
 
                     <div style="margin-top: 10px; display: none;" id="box-<?php echo $key ?>-form" class="forms">
                         <input class="tx" type="text" id="box-<?php echo $key ?>-input_selected"/>
-                        <input class="bt input_submit" value="Сохранить" id="box-<?php echo $key ?>-button" type="button"/>
+                        <input class="bt input_submit" value="РЎРѕС…СЂР°РЅРёС‚СЊ" id="box-<?php echo $key ?>-button" type="button"/>
                     </div>
 
                 </div>

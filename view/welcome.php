@@ -5,13 +5,13 @@
 </script>
 
 <div class="wr">
-    <h2>Введите адрес электронной почты:</h2>
+    <h2>Р’РІРµРґРёС‚Рµ Р°РґСЂРµСЃ СЌР»РµРєС‚СЂРѕРЅРЅРѕР№ РїРѕС‡С‚С‹:</h2>
 
     <form action="/welcome" method="post" id="my-form">
         <input type="text" name="email" class="tx" id="email" value="<?php echo $email ?>" autofocus>
-        <input type="submit" name="submit" class="entr" value="Войти"/>
+        <input type="submit" name="submit" class="entr" value="Р’РѕР№С‚Рё"/>
         <br/>
-        <input type="checkbox" class="chec" name="remember" checked/> <label>Запомнить</label>
+        <input type="checkbox" class="chec" name="remember" checked/> <label>Р—Р°РїРѕРјРЅРёС‚СЊ</label>
         <br/>
     </form>
 
@@ -19,7 +19,7 @@
 
     <script src="http://loginza.ru/js/widget.js" type="text/javascript"></script>
     <a href="http://loginza.ru/api/widget?token_url=http://www.deposit.zp.ua/auth.php" class="loginza">
-        <img src="http://loginza.ru/img/sign_in_button_gray.gif" alt="Войти через loginza"/>
+        <img src="http://loginza.ru/img/sign_in_button_gray.gif" alt="Р’РѕР№С‚Рё С‡РµСЂРµР· loginza"/>
     </a>
 
 

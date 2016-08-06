@@ -1,6 +1,6 @@
 <?php if (!$displayWeight) { ?>
 <div style="text-align: center; padding-top:140px">
-    Введите хотя бы две значения веса.
+    Р’РІРµРґРёС‚Рµ С…РѕС‚СЏ Р±С‹ РґРІРµ Р·РЅР°С‡РµРЅРёСЏ РІРµСЃР°.
 </div>
 
 <?php } else { ?>
@@ -10,18 +10,18 @@
 <div class="bottom-menu">
     <div class="sub-left">
         <fieldset class="trend">
-            <legend>Тренд:</legend>
+            <legend>РўСЂРµРЅРґ:</legend>
             <ul class="trend">
-                <li>Последний год <input type="checkbox"
+                <li>РџРѕСЃР»РµРґРЅРёР№ РіРѕРґ <input type="checkbox"
                                          id="checkbox-year" <?php if ($period == 'year') echo "checked" ?>
                                          onclick="window.location = '/graph-trend-year';"/></li>
-                <li>Последний месяц <input type="checkbox"
+                <li>РџРѕСЃР»РµРґРЅРёР№ РјРµСЃСЏС† <input type="checkbox"
                                            id="checkbox-month" <?php if ($period == 'month') echo "checked" ?>
                                            onclick="window.location = '/graph-trend-month';"/></li>
-                <li>Последняя неделя <input type="checkbox"
+                <li>РџРѕСЃР»РµРґРЅСЏСЏ РЅРµРґРµР»СЏ <input type="checkbox"
                                             id="checkbox-week" <?php if ($period == 'week') echo "checked" ?>
                                             onclick="window.location = '/graph-trend-week';"/></li>
-                <li>Очистить <input type="checkbox" id="checkbox-remove"
+                <li>РћС‡РёСЃС‚РёС‚СЊ <input type="checkbox" id="checkbox-remove"
                                     onclick="window.location = '/graph';"/></li>
             </ul>
         </fieldset>
@@ -29,20 +29,20 @@
 
     <div>
         <fieldset class="trend">
-            <legend> Строить график по:</legend>
+            <legend> РЎС‚СЂРѕРёС‚СЊ РіСЂР°С„РёРє РїРѕ:</legend>
             <ul class="trend">
-                <li>Дню недели:
+                <li>Р”РЅСЋ РЅРµРґРµР»Рё:
                     <select
                         onchange="if (this.selectedIndex) window.location = '/graph-for-weekday/' + this.options[this.selectedIndex].value;">
                         <option></option>
-                        <?php $days = array(1 => 'Пн', 2 => 'Вт', 3 => 'Ср', 4 => 'Чт', 5 => 'Пт', 6 => 'Сб', 7 => 'Вс'); ?>
+                        <?php $days = array(1 => 'РџРЅ', 2 => 'Р’С‚', 3 => 'РЎСЂ', 4 => 'Р§С‚', 5 => 'РџС‚', 6 => 'РЎР±', 7 => 'Р’СЃ'); ?>
                         <?php for ($i = 1; $i < 8; $i++) { ?>
                         <?php $selected = ($type == 'weekday' && $term == $i) ? 'selected' : '' ?>
                         <option <?php echo $selected ?> value="<?php echo $i ?>"><?php echo $days[$i] ?></option>
                         <?php } ?>
                     </select>
                 </li>
-                <li>№ месяца:
+                <li>в„– РјРµСЃСЏС†Р°:
                     <select
                         onchange="if (this.selectedIndex) window.location = '/graph-for-month/' + this.options[this.selectedIndex].value;">
                         <option></option>
@@ -53,7 +53,7 @@
                     </select>
                 </li>
 
-                <li>№ недели:
+                <li>в„– РЅРµРґРµР»Рё:
                     <select
                         onchange="if (this.selectedIndex) window.location = '/graph-for-week/' + this.options[this.selectedIndex].value;">
                         <option></option>
@@ -64,7 +64,7 @@
                     </select>
                 </li>
 
-                <li>Очистить <input type="checkbox"
+                <li>РћС‡РёСЃС‚РёС‚СЊ <input type="checkbox"
                                     onclick="window.location = '/graph';"/></li>
             </ul>
 
@@ -72,7 +72,7 @@
     </div>
 
     <div id="print">
-        <input type="button" value="Печать" onclick="window.print();">
+        <input type="button" value="РџРµС‡Р°С‚СЊ" onclick="window.print();">
     </div>
 
 </div>

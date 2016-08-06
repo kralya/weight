@@ -7,8 +7,8 @@
     <meta http-equiv="content-type" content="text/html; charset=windows-1251"/>
 
     <meta name="robots" content="INDEX, FOLLOW"/>
-    <meta name="keywords" content="дневник, вес, график, изменение, похудеть"/>
-    <meta name="description" content="Дневник веса, онлайн вес, следить за весом"/>
+    <meta name="keywords" content="РґРЅРµРІРЅРёРє, РІРµСЃ, РіСЂР°С„РёРє, РёР·РјРµРЅРµРЅРёРµ, РїРѕС…СѓРґРµС‚СЊ"/>
+    <meta name="description" content="Р”РЅРµРІРЅРёРє РІРµСЃР°, РѕРЅР»Р°Р№РЅ РІРµСЃ, СЃР»РµРґРёС‚СЊ Р·Р° РІРµСЃРѕРј"/>
     <link rel="shortcut icon" href="/favicon.png" type="image/x-icon"/>
 
     <title><?php echo $title ?></title>
@@ -47,13 +47,13 @@
         <div class="right-rail">
             <ul>
                 <li class="wight">
-                    <div class="bg-bt"><a href="<?php echo INDEX_PAGE ?>">Ввести вес</a></div>
+                    <div class="bg-bt"><a href="<?php echo INDEX_PAGE ?>">Р’РІРµСЃС‚Рё РІРµСЃ</a></div>
                 </li>
                 <li class="chart">
-                    <div class="bg-bt"><a href="<?php echo GRAPH_PAGE ?>">График</a></div>
+                    <div class="bg-bt"><a href="<?php echo GRAPH_PAGE ?>">Р“СЂР°С„РёРє</a></div>
                 </li>
                 <li class="quit">
-                    <div class="bg-bt"><a href="<?php echo LOGOUT_PAGE ?>">Выйти</a></div>
+                    <div class="bg-bt"><a href="<?php echo LOGOUT_PAGE ?>">Р’С‹Р№С‚Рё</a></div>
                 </li>
             </ul>
         </div>
