@@ -19,11 +19,11 @@ $bullet = new Bullet();
 
 Core::loadTemplate('header', array('weights'        => $weights,
                                       'useChartScript' => true,
-                                      'title'          => 'График веса',
+                                      'title'          => 'Р“СЂР°С„РёРє РІРµСЃР°',
                                       'trendPoints'    => $trendPoints,
                                       'bulletSize'     => $bullet->getSizeFor($weights)));
 Core::loadTemplate('graph', array('displayWeight' => Weight::isDisplayed($weights),
                                   'period'        => $period,
                                   'weeks'         => Weight::getWeeksWithGraph()));
 Core::loadTemplate('footer', array('link'     => INDEX_PAGE,
-                                      'linkText' => 'Ввести вес:'));
+                                      'linkText' => 'Р’РІРµСЃС‚Рё РІРµСЃ:'));

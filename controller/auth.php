@@ -2,7 +2,7 @@
 include_once('config.php');
 $ch = curl_init();
 
-// установка URL и других необходимых параметров
+// СѓСЃС‚Р°РЅРѕРІРєР° URL Рё РґСЂСѓРіРёС… РЅРµРѕР±С…РѕРґРёРјС‹С… РїР°СЂР°РјРµС‚СЂРѕРІ
 $token = $_POST['token'];
 $secret = '93585dea7e26f4f215c549bae2b3e30b';
 $skey = md5($token.$secret);
@@ -12,10 +12,10 @@ curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 curl_setopt($ch, CURLOPT_HEADER, 0);
 
-// загрузка страницы и выдача её браузеру
+// Р·Р°РіСЂСѓР·РєР° СЃС‚СЂР°РЅРёС†С‹ Рё РІС‹РґР°С‡Р° РµС‘ Р±СЂР°СѓР·РµСЂСѓ
 $result = curl_exec($ch);
 
-// завершение сеанса и освобождение ресурсов
+// Р·Р°РІРµСЂС€РµРЅРёРµ СЃРµР°РЅСЃР° Рё РѕСЃРІРѕР±РѕР¶РґРµРЅРёРµ СЂРµСЃСѓСЂСЃРѕРІ
 curl_close($ch);
 
 //echo $result;

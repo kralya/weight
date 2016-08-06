@@ -8,6 +8,6 @@ $weights = Weight::getForDaysAgo(2 * DAYS_AGO_INDEX);
 $weights = array_slice($weights, DAYS_AGO_INDEX);
 $email = Auth::getEmail();
 
-Core::loadTemplate('header', array('title' => 'Дневник веса'));
+Core::loadTemplate('header', array('title' => 'Р”РЅРµРІРЅРёРє РІРµСЃР°'));
 Core::loadTemplate('index', array('weights' => $weights, 'email' => $email));
-Core::loadTemplate('footer', array('link' => GRAPH_PAGE, 'linkText' => 'Посмотреть график:'));
+Core::loadTemplate('footer', array('link' => GRAPH_PAGE, 'linkText' => 'РџРѕСЃРјРѕС‚СЂРµС‚СЊ РіСЂР°С„РёРє:'));

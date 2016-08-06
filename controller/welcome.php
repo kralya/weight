@@ -8,7 +8,7 @@ if(empty($_POST['email'])){
 $email = $_POST['email'];
 
 if (isset($_POST['email']) && !Validate::email($email)) {
-    $message = 'Íåâåðíûé ôîðìàò';
+    $message = 'ÐÐµÐ²ÐµÑ€Ð½Ñ‹Ð¹ Ñ„Ð¾Ñ€Ð¼Ð°Ñ‚';
 }
 
 if (isset($_POST['email']) && Validate::email($email) || isset($_COOKIE['login']) && !empty($_COOKIE['login']) ) {
@@ -31,6 +31,6 @@ if (isset($_POST['email']) && Validate::email($email) || isset($_COOKIE['login']
 
 }
 
-Core::loadTemplate('header', array('title' => 'Äíåâíèê âåñà', 'notLogged' => true));
+Core::loadTemplate('header', array('title' => 'Ð”Ð½ÐµÐ²Ð½Ð¸Ðº Ð²ÐµÑÐ°', 'notLogged' => true));
 Core::loadTemplate('welcome', array('message' => $message, 'email' => $email));
 Core::loadTemplate('footer');
