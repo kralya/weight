@@ -11,7 +11,7 @@
     <meta name="description" content="Дневник веса, онлайн вес, следить за весом"/>
     <link rel="shortcut icon" href="/favicon.png" type="image/x-icon"/>
 
-    <title><?php echo $title ?> ффывфыв</title>
+    <title><?php echo $title ?></title>
 
     <link rel="stylesheet" href="<?php echo ROOT ?>/css/all.css">
 
